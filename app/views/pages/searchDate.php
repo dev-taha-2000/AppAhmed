@@ -10,8 +10,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body"> 
-        <input type="text" name="from_date" id="from_date" autocomplete='off' class="form-control mt-3" placeholder="depuis la date" />  
-        <input type="text" name="to_date" id="to_date"     autocomplete='off' class="form-control mt-4" placeholder="à la date" />  
+        <input type="text" name="from_date" id="from_date" autocomplete='off' class="form-control mt-2" placeholder="depuis la date 2022/01/05" /> 
+        <input type="text" name="to_date" id="to_date"     autocomplete='off' class="form-control mt-3" placeholder="à la date 2022/02/07" />  
       </div> 
       <div class="modal-footer">
         <button type="button" name="filter" class="btn btn-primary w-100" id="filterDate" data-bs-dismiss="modal">recherché</button> 

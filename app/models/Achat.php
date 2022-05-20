@@ -11,7 +11,7 @@ class Achat{
         if(!empty($_POST['Search'])){ 
             $user_id=$_SESSION['user_id'];              
             $search=$_POST['Search'];  
-            $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `Chantier` LIKE '$search%' OR `Fas` LIKE '%$search%' OR `Designation` LIKE '%$search%' limit 11");
+            $this->db->query("SELECT *FROM  `Achat`  WHERE   `id_users`='$user_id' AND   `Chantier` LIKE '%$search%'  OR `Fas` LIKE '%$search%'  limit 11");
             $result = $this->db->resultSet();
             return $result;           
         }                 

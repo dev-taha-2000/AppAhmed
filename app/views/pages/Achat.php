@@ -41,7 +41,7 @@
                     </button>     
                </div>       
                 <div> 
-                    <input  type="text" autocomplete='off' class="form-control border-3" id="search" placeholder="Search...">
+                    <input  type="text" id="search" autocomplete='off' class="form-control border-3"  placeholder="Search...">
                 </div>     
             </div>
            
@@ -66,7 +66,7 @@
         </div>
     </div>  
     <?php include_once 'searchDate.php'?>  
-    <?php include_once 'modalAchat.php'?>
+    <?php include_once 'modalAchat.php'?> 
     <input type="hidden" id="URLROOT" value="<?php echo URLROOT?>/Ashat/tableAchat"> 
     <input type="hidden" id="modifyAchat" value="<?php echo URLROOT;?>/Ashat/UpdateAchat">  
     <input type="hidden" id="deleteAchat" value="<?php echo URLROOT;?>/Ashat/deleteAchat"> 
@@ -74,4 +74,4 @@
     <script src="<?php echo URLROOT; ?>/js/Achat.js"></script> 
     <script src="<?php echo URLROOT; ?>/js/crdAchat.js"></script>  
 </body>  
-</html>
+</html>  
