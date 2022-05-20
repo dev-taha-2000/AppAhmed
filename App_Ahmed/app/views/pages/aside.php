@@ -13,7 +13,7 @@
     </form> 
     <div id="myDIV">
     <a href="<?php echo URLROOT ?>/Pages/profile"><button class="w-75  p-2 btn btn-light mt-3">dachboard</button></a>  
-    <a href="<?php echo URLROOT ?>/Ashat"><button class="w-75 mt-3 p-2 btn btn-light">Achat</button></a>  
+    <a href="<?php echo URLROOT ?>/Ashat"><button class="w-75 mt-3 p-2 btn btn-light">Les achats</button></a>  
     <button class="w-75 mt-3 p-2 btn btn-light " >Vents</button>  
     <button class="w-75 mt-3 p-2 btn btn-light " >Bonque</button> 
     <button class="w-75 mt-3 p-2 btn btn-light " >Caise</button>  
@@ -29,5 +29,10 @@
         </button> 
     </a>        
     </div>
-</div>   
+</div>  
+<script>
+    document.getElementById("image").onchange = function(){
+    document.getElementById("form").submit();   
+    };   
+</script> 
  

@@ -6,47 +6,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <h4 class="modal-title text-center" id="staticBackdropLabel">recherché par la date</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <input type="text" name="from_date" id="from_date" class="form-control mb-2" placeholder="From Date" />  
-        <input type="text" name="to_date" id="to_date"     class="form-control" placeholder="To Date" />  
+      <div class="modal-body"> 
+        <input type="text" name="from_date" id="from_date" autocomplete='off' class="form-control mt-3" placeholder="depuis la date" />  
+        <input type="text" name="to_date" id="to_date"     autocomplete='off' class="form-control mt-4" placeholder="à la date" />  
       </div> 
       <div class="modal-footer">
-        <button type="button" name="filter" class="btn btn-info w-100" id="filter" data-bs-dismiss="modal">Filter</button> 
+        <button type="button" name="filter" class="btn btn-primary w-100" id="filterDate" data-bs-dismiss="modal">recherché</button> 
       </div>
     </div>
   </div> 
-</div>
-<script>
-$(document).ready(function(){  
-    $.datepicker.setDefaults({  
-        dateFormat:'yy-mm-dd'    
-    });  
-    $(function(){ 
-        $("#from_date").datepicker();  
-        $("#to_date").datepicker();  
-    });
-    $('#filter').click(function(){   
-        var from_date = $('#from_date').val();  
-        var to_date = $('#to_date').val(); 
-        if(from_date != '' && to_date != '')  
-        {  
-            $.ajax({  
-                url:"<?php echo URLROOT?>/Ashat/ajax",  
-                method:"POST",  
-                data:{from_date:from_date, to_date:to_date},  
-                success:function(data)  
-                {  
-                    $('#fetch').html(data);  
-                }  
-            });  
-        }  
-        else  
-        {  
-            alert("Please Select Date");  
-        }  
-    });  
-});  
-</script>
+</div> 
+<input type="hidden" id='searchDate' value="<?php echo URLROOT?>/Ashat/tableAchat"> 
+<script src="<?php echo URLROOT; ?>/js/searDateAchat.js"></script>  

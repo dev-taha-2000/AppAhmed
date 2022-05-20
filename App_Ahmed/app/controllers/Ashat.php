@@ -4,10 +4,9 @@ class Ashat extends Controller{
         $this->CrudeAchat=$this->model('Achat');   
         $this->PROFILE=$this->model('User');    
     }   
-    public function ajax(){
-        $this->CrudeAchat=$this->model('Achat');  
-        $Data=$this->CrudeAchat->SelectAchat(); 
-        $this->view('pages/loopAchat',$Data);        
+    public function tableAchat(){   
+        $Data=$this->CrudeAchat->SelectAchat();  
+        $this->view('pages/loopAchat',$Data);           
     }    
     public function index(){ 
         $Data=$this->CrudeAchat->SelectAchat(); 
@@ -15,46 +14,60 @@ class Ashat extends Controller{
         include_once 'profile.php';  
         $this->view('pages/Achat',$Data,$somme,$image);     
     }   
-    public function insertAchat(){
+    public function insertAchat(){  
        $Achat=[ 
         'date'=>$_POST['date'],
-        'Designation'=>$_POST['Designation'],
-        'Type'=>$_POST['Type'], 
-        'Fas'=>$_POST['Fas'], 
+        'Designation'=>$_POST['designation'], 
+        'Type'=>$_POST['type'], 
+        'Fas'=>$_POST['frs'], 
         'Quantité'=>$_POST['Quantité'],
         'prix_Unitaire'=>$_POST['prix_Unitaire'], 
         'Mantant_HT'=>$_POST['Mantant_HT'],
         'Chantier'=>$_POST['Chantier'], 
         'user_id'=>$_SESSION['user_id']  
        ];   
-       if($this->CrudeAchat->insertAchat($Achat)){ 
-        redirect('Ashat');
-    }    
-    }      
-
-    public function DeleteAchat(){
-        $id_Achat=$_GET['id_Achat'];  
-        if($this->CrudeAchat->DeleteAchat($id_Achat)){ 
-            redirect('Ashat');
-        }    
+       if($this->CrudeAchat->insertAchat($Achat)){  
+        $this->tableAchat();   
+        }   
+    }     
+    
+    public function autoCompletChantier(){  
+        $chantier=$_POST['chantier'];
+        $result=$this->CrudeAchat->autoCompletChantier($chantier); 
+        $this->view('pages/autoCompleteChantier',$result);       
+    }  
+    public function autoCompleteFrs(){
+        $frs=$_POST['frs'];
+        $result=$this->CrudeAchat->autoCompleteFrs($frs);  
+        $this->view('pages/autoCompleteFrs',$result);  
     }
-
-    public function UpdateAchat(){
+    public function autoCompleteDesignation(){
+        $designation=$_POST['designation'];
+        $result=$this->CrudeAchat->autoCompleteDesignation( $designation);  
+        $this->view('pages/autoCompleteDesignation',$result);  
+    }
+    public function DeleteAchat(){
+        $id_Achat=$_POST['id_Achat'];   
+        if($this->CrudeAchat->DeleteAchat($id_Achat)){ 
+            $this->tableAchat();  
+        }    
+    } 
+    public function UpdateAchat(){ 
         $Achat=[
             'id_Achat'=>$_POST['id_Achat'],
             'date'=>$_POST['date'],
-            'Designation'=>$_POST['Designation'],
-            'Type'=>$_POST['Type'], 
-            'Fas'=>$_POST['Fas'], 
+            'Designation'=>$_POST['designation'],
+            'Type'=>$_POST['type'], 
+            'Fas'=>$_POST['frs'], 
             'Quantité'=>$_POST['Quantité'],
             'prix_Unitaire'=>$_POST['prix_Unitaire'], 
             'Mantant_HT'=>$_POST['Mantant_HT'],
             'Chantier'=>$_POST['Chantier'], 
             'user_id'=>$_SESSION['user_id']  
-        ];
+        ]; 
         if($this->CrudeAchat->UpdateAchat($Achat)){
-            redirect('Ashat');
-        };
+            $this->tableAchat();     
+        };  
 
     } 
 }  
