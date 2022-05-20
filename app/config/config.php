@@ -8,7 +8,7 @@
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'http://localhost/App_Ahmed');   
+  define('URLROOT', 'http://localhost/AppAhmed');   
   // Site Name
   define('SITENAME', 'Taha Dourhmi'); 
   // App Version

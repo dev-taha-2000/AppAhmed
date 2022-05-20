@@ -1,6 +1,9 @@
 <?php  
 class Ashat extends Controller{   
-    public function __construct(){ 
+    public function __construct(){
+        if(empty($_SESSION['username']) || empty($_SESSION['email'])){
+            redirect('users/login'); 
+        } 
         $this->CrudeAchat=$this->model('Achat');   
         $this->PROFILE=$this->model('User');    
     }   
