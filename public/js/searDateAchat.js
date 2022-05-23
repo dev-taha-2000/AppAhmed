@@ -6,6 +6,7 @@ $(document).ready(function(){
         $("#from_date").datepicker();  
         $("#to_date").datepicker();  
     });
+
     $('#filterDate').click(function(){   
         var from_date = $('#from_date').val();  
         var to_date = $('#to_date').val(); 
@@ -14,7 +15,7 @@ $(document).ready(function(){
             $.ajax({  
                 url:$('#searchDate').val(),  
                 method:"POST",  
-                data:{from_date:from_date, to_date:to_date},  
+                data:{from_date:from_date,to_date:to_date},   
                 success:function(data)  
                 {  
                   $('#fetch').html(data);   
@@ -23,7 +24,8 @@ $(document).ready(function(){
         }  
         else  
         {  
-            alert("Please Select Date");  
+            alert("Please Select Date");   
         }  
     });  
+
 });  

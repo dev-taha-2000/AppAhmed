@@ -9,7 +9,6 @@
                     <input type="hidden"         name="id_Achat"    id="id_Achat"> 
                     <input type="text" placeholder="date"         autocomplete='off' id="date"             name="date"        class="w-100 form-control mt-2"  required>
                     <input type="text" placeholder="Designation"  autocomplete='off' id="Designation"  list='dropDesignation'    name="Designation" class="w-100 form-control mt-2"  required> 
-                    <datalist  id="dropDesignation" class='position-absolute'> </datalist>   
                     <div class="input-group mt-2 w-100"> 
                      <select name="Type" class="form-select"      autocomplete='off' id="Type"             aria-label="Default select example">
                         <option selected>TYPE</option>
@@ -23,7 +22,7 @@
                     <input type="text" placeholder="Quantité"      autocomplete='off' id="Quantité"         name="Quantité"      class="w-100 form-control mt-2" required>
                     <input type="text" placeholder="prix Unitaire" autocomplete='off' id="prix_Unitaire"    name="prix_Unitaire" class="w-100 form-control mt-2" required> 
                     <input type="text" placeholder=" Mantant HT"   autocomplete='off' id="Mantant_HT"       name="Mantant_HT"    class="w-100 form-control mt-2" required>
-                    <input type="text" placeholder="Chantier"      autocomplete='off' id="Chantier"     list='dropChantier'    name="Chantier"      class="w-100 form-control mt-2  chantier" required> 
+                    <input type="text" placeholder="Chantier"      autocomplete='off' id="Chantier"         name="Chantier"      class="w-100 form-control mt-2  chantier" required> 
                         <datalist  id="dropChantier" class='position-absolute'> </datalist>   
                 </div>   
                 <div class="modal-footer" id="modal_footer">   

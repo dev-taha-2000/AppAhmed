@@ -7,7 +7,7 @@ class Achat{
     {
         $this->db = new Database;  
     }    
-    public function SelectAchat(){   
+    public function SelectAchat($start){    
         if(!empty($_POST['Search'])){ 
             $user_id=$_SESSION['user_id'];              
             $search=$_POST['Search'];  
@@ -21,14 +21,26 @@ class Achat{
             $to=$_POST['to_date'];
             $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$from' AND '$to' limit 11");        
             $result = $this->db->resultSet();  
-            return $result; 
+            return $result;  
         }else{
             $user_id=$_SESSION['user_id'];         
-            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit 11");        
-            $result = $this->db->resultSet();  
-            return $result;   
-        }  
-    }   
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,13");         
+            $result = $this->db->resultSet();
+            return $result;
+        }    
+    }        
+    public function SUM(){     
+        $user_id=$_SESSION['user_id'];         
+        $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HT FROM `Achat` WHERE  `id_users`='$user_id' ");         
+        $SUM=$this->db->resultSet();  
+        return $SUM;                      
+    }                       
+    public function rowCol(){  
+        $user_id=$_SESSION['user_id'];         
+        $result=$this->db->query("SELECT count(*) FROM `Achat`  WHERE  `id_users`='$user_id'");            
+        $rowCount=$this->db->fetchCol();   
+        return $rowCount; 
+    }     
     public function insertAchat($Achat){ 
         
         $date=$Achat['date']; 
@@ -90,17 +102,6 @@ class Achat{
         $result=$this->db->resultSet();  
         return $result; 
     }
-    public function autoCompleteDesignation($designation){
-        $user_id=$_SESSION['user_id'];    
-        $this->db->query("SELECT `Designation` FROM `Achat` WHERE  `id_users`='$user_id' AND  `Designation` LIKE '%$designation%'  limit 5"); 
-        $result=$this->db->resultSet();  
-        return $result; 
-    }
-    public function sommeHT(){
-        $user_id=$_SESSION['user_id'];         
-        $this->db->query("SELECT sum(Mantant_HT) AS Mantant_HT FROM `Achat`  WHERE  `id_users`='$user_id'");        
-        $row=$this->db->single();  
-        return $row; 
-    }
+  
 }
 

@@ -2,13 +2,7 @@
 <div class="col-2 bg-primary aside text-center" style="height:100vh;">
     <form class=" border border-primary" id ="form" enctype="multipart/form-data" method="post">
     <div class="upload m-auto bg-light mt-3 rounded-circle " style="height:100px;width:120px;"> 
-        <img src="<?php echo URLROOT;?>/img_apload/<?php if($image != "" ){echo $image;}else echo 'profil.png';?>" alt="profile" class="h-100 rounded-circle"  width = 125 height = 125 title="<?php echo $image;?>" class="h-100 w-100"> 
-        <div class="round"> 
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="hidden" name="name" value="<?php echo $name; ?>">
-            <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png"> 
-            <i class = "fa fa-camera" style = "color: #fff;"></i> 
-        </div>  
+        <!-- LOGO --> 
     </div>  
     </form> 
     <div id="myDIV">
@@ -30,9 +24,4 @@
     </a>        
     </div>
 </div>  
-<script>
-    document.getElementById("image").onchange = function(){
-    document.getElementById("form").submit();   
-    };   
-</script> 
  

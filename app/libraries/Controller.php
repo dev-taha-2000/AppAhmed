@@ -11,7 +11,16 @@
 
       return new $model();  
     }    
-    public function view($view , $Data=null , $Calc=null , $image=null){        
+    public function view($view,$Data=null,$rowCount=null){          
+      // Check for view file 
+      if(file_exists('../app/views/' . $view . '.php')){
+        require_once '../app/views/' . $view . '.php'; 
+      } else {
+        // View does not exist 
+        die('View does not exist'); 
+      } 
+    }                 
+    public function viewColaps($view,$SUM){           
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 

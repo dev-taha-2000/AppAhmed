@@ -1,0 +1,11 @@
+$(document).ready(function(){  
+    $('#collapse').click(function(){
+        $.ajax({ 
+         url:$('#TMM').val(),
+         method:'POST',
+        })  
+        .done(function(response){      
+         $('#tmm').html(response);
+        });      
+    });  
+});   

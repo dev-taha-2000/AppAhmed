@@ -8,14 +8,25 @@ class Ashat extends Controller{
         $this->PROFILE=$this->model('User');    
     }   
     public function tableAchat(){   
-        $Data=$this->CrudeAchat->SelectAchat();  
-        $this->view('pages/loopAchat',$Data);           
-    }    
+        if(!empty($_POST['page'])){ 
+            $page=$_POST['page'];    
+        }else{
+            $page=1; 
+        }  
+        $fetch=13;
+        $start=($page-1)*$fetch;  
+        $Data=$this->CrudeAchat->SelectAchat($start); 
+        $rowCount=$this->CrudeAchat->rowCol();     
+        $this->view('pages/loopAchat',$Data,$rowCount,null);               
+    }         
+    public function SUM(){ 
+        $SUM=$this->CrudeAchat->SUM(); 
+        if($SUM!=""){
+            $this->viewColaps('pages/TMM',$SUM);  
+        }   
+    }            
     public function index(){ 
-        $Data=$this->CrudeAchat->SelectAchat(); 
-        $somme= $this->CrudeAchat->sommeHT(); 
-        include_once 'profile.php';  
-        $this->view('pages/Achat',$Data,$somme,$image);     
+        $this->view('pages/Achat');        
     }   
     public function insertAchat(){  
        $Achat=[ 
@@ -24,7 +35,7 @@ class Ashat extends Controller{
         'Type'=>$_POST['type'], 
         'Fas'=>$_POST['frs'], 
         'Quantité'=>$_POST['Quantité'],
-        'prix_Unitaire'=>$_POST['prix_Unitaire'], 
+        'prix_Unitaire'=>$_POST['prix_Unitaire'],  
         'Mantant_HT'=>$_POST['Mantant_HT'],
         'Chantier'=>$_POST['Chantier'], 
         'user_id'=>$_SESSION['user_id']  
@@ -43,12 +54,7 @@ class Ashat extends Controller{
         $frs=$_POST['frs'];
         $result=$this->CrudeAchat->autoCompleteFrs($frs);  
         $this->view('pages/autoCompleteFrs',$result);  
-    }
-    public function autoCompleteDesignation(){
-        $designation=$_POST['designation'];
-        $result=$this->CrudeAchat->autoCompleteDesignation( $designation);  
-        $this->view('pages/autoCompleteDesignation',$result);  
-    }
+    }  
     public function DeleteAchat(){
         $id_Achat=$_POST['id_Achat'];   
         if($this->CrudeAchat->DeleteAchat($id_Achat)){ 

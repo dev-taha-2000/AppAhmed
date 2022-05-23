@@ -1,15 +1,39 @@
-function load_data(Search=null){ 
+load_table();
+function load_data(Search){  
+    
     $.ajax({ 
         url:$('#URLROOT').val(), 
         method:'POST', 
-        data:{Search:Search},   
+        data:{Search:Search},    
         success:function(data){   
-            $('#fetch').html(data); 
+            $('#fetch').html(data);
+            console.log('table'); 
         }
     });             
-} 
-$(document).ready(function(){
-    load_data(data=null);  
+}   
+function load_table(page){  
+    
+    $.ajax({ 
+        url:$('#URLROOT').val(), 
+        method:'POST', 
+        data:{page:page},    
+        success:function(data){   
+            $('#fetch').html(data);
+            console.log('table'); 
+        }
+    });             
+}   
+$(document).ready(function(){ 
+   
+    $(document).on('click','.pagination',function(){
+        var page=$(this).attr("id"); 
+       load_table(page) 
+    }); 
+    
+    $('#search').keyup(function(){  
+       var search = $(this).val(); 
+       load_data(search);  
+    });     
     $.datepicker.setDefaults({  
         dateFormat: 'yy-mm-dd'    
     });  
@@ -17,13 +41,5 @@ $(document).ready(function(){
     $(function(){  
         $("#date").datepicker();  
     }); 
-
-    $('#search').keyup(function(){  
-       var search = $(this).val(); 
-    if(search != ''){ 
-       load_data(search); 
-    }else{    
-       load_data();  
-    } 
-    });      
+  
 });  

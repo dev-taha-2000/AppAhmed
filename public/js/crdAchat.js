@@ -5,10 +5,10 @@ function DeleteAchat(id_Achat){
         url:$('#deleteAchat').val(),
         method:'POST',
         data:{id_Achat:id_Achat},
-        sweet:Swal.fire({
+        sweet:Swal.fire({ 
             position: 'top-center',
             icon: 'success',  
-            title: 'Vous avez suprimer achat',
+            title: 'Vous avez suprimer achat', 
             showConfirmButton: false,
             timer: 1500
         }), 
@@ -28,7 +28,7 @@ $(document).ready(function(){
         var id_Achat=$('#id_Achat').val();
         var Mantant_HT=$('#Mantant_HT').val(); var Chantier=$('#Chantier').val();
        
-        if(id_Achat == "" && date != ''&& designation != ''&& type != ''&& frs != ''&& Quantité != '' && prix_Unitaire !=''){
+        if(id_Achat == "" && date != ''&& designation != ''&& type != ''&& frs != ''&& Quantité != '' && prix_Unitaire !=''  &&  Mantant_HT !='' && Chantier != ''){
             $.ajax({  
                 url:$('#insetAchat').val(),  
                 method:'POST', 

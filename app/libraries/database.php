@@ -82,4 +82,9 @@ class Database {
   public function rowCount(){  
     return $this->stmt->rowCount();
   }  
+  public function fetchCol(){ 
+    $this->execute();
+    return $this->stmt->fetchColumn();    
+
+  }
 }  

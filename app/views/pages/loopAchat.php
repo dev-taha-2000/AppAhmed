@@ -12,7 +12,7 @@
         <th>OPTIONS</th>    
     </tr> 
 <?php foreach ($Data as $value){?>     
-    <tr id="search-result" class="shadow-none p-3 mb-5 bg-light rounded">     
+    <tr id="search-result" class="shadow-none p-3 mb-5 bg-light rounded">      
         <td><?php echo $value['date'] ?></td>   
         <td><?php echo $value['Designation'] ?></td>
         <td><?php echo $value['Type'] ?></td> 
@@ -36,4 +36,13 @@
         </td>  
     </tr> 
 <?php }?>       
-</table>  
+</table> 
+<input type="hidden" id="URLROOT" value="<?php echo URLROOT?>/Ashat/tableAchat">  
+    <?php
+    $totalPage=ceil($rowCount/13);
+    ?>
+    <div class="d-flex mb-5 p-2" style="display:inline-block;margin-top:-50px"> 
+       <?php for($i=1;$i<=$totalPage;$i++):?>
+       <button class="pagination btn btn-outline-primary" id="<?=$i?>"><?=$i?></button> 
+       <?php endfor ;?>
+    </div> 
