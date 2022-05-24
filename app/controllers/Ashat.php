@@ -13,18 +13,16 @@ class Ashat extends Controller{
         }else{
             $page=1; 
         }  
-        $fetch=13;
+        $fetch=13; 
         $start=($page-1)*$fetch;  
         $Data=$this->CrudeAchat->SelectAchat($start); 
-        $rowCount=$this->CrudeAchat->rowCol();     
+        $rowCount=$this->CrudeAchat->rowCol();    
         $this->view('pages/loopAchat',$Data,$rowCount,null);               
     }         
     public function SUM(){ 
         $SUM=$this->CrudeAchat->SUM(); 
-        if($SUM!=""){
-            $this->viewColaps('pages/TMM',$SUM);  
-        }   
-    }            
+        $this->viewColaps('pages/TMM',$SUM);   
+    }                        
     public function index(){ 
         $this->view('pages/Achat');        
     }   

@@ -1,4 +1,4 @@
-   <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
        <div class="modal-dialog">  
             <div class="modal-content">
                 <div class="modal-header">
@@ -29,8 +29,7 @@
                     <input   type="btn" value="SAVE" id='addAchat' class="btn btn-primary w-100" data-bs-dismiss="modal">
                 </div> 
         </div>     
-    </div> 
-        <input type="hidden" id='autoCompleteChantier'    value='<?php echo URLROOT?>/Ashat/autoCompletChantier'>       
-        <input type="hidden" id='autoCompleteFrs'         value='<?php echo URLROOT?>/Ashat/autoCompleteFrs'>       
-        <input type="hidden" id='autoCompleteDesignation' value='<?php echo URLROOT?>/Ashat/autoCompleteDesignation'>       
-        <script src="<?php echo URLROOT; ?>/js/Achatautocomplete.js"></script>  
+</div>  
+<input type="hidden" id='autoCompleteChantier'    value='<?php echo URLROOT?>/Ashat/autoCompletChantier'>       
+<input type="hidden" id='autoCompleteFrs'         value='<?php echo URLROOT?>/Ashat/autoCompleteFrs'>       
+<script src="<?php echo URLROOT; ?>/js/Achatautocomplete.js"></script>  

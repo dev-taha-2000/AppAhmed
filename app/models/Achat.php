@@ -13,28 +13,56 @@ class Achat{
             $search=$_POST['Search'];  
             $this->db->query("SELECT *FROM  `Achat`  WHERE   `id_users`='$user_id' AND   `Chantier` LIKE '%$search%'  OR `Fas` LIKE '%$search%'  limit 11");
             $result = $this->db->resultSet();
-            return $result;           
+            return $result;            
         }                 
-        if(!empty($_POST['from_date']) AND !empty($_POST['to_date'])){
+        if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND empty($_POST['frsR']) AND empty($_POST['ChantierR']) ){
             $user_id=$_SESSION['user_id'];              
-            $from=$_POST['from_date'];
+            $from=$_POST['from_date'];  
             $to=$_POST['to_date'];
             $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$from' AND '$to' limit 11");        
             $result = $this->db->resultSet();  
+            return $result;   
+        }
+        if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND !empty($_POST['frsR']) AND !empty($_POST['ChantierR'])){
+            $from=$_POST['from_date'];
+            $to=$_POST['to_date'];
+            $frsR=$_POST['frsR'];
+            $ChantierR=$_POST['ChantierR'];    
+            $user_id=$_SESSION['user_id'];         
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id' AND `FAS`='$frsR' AND `Chantier`='$ChantierR' AND `date` BETWEEN '$from' AND '$to' ");         
+            $result = $this->db->resultSet(); 
             return $result;  
         }else{
             $user_id=$_SESSION['user_id'];         
             $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,13");         
             $result = $this->db->resultSet();
-            return $result;
+            return $result; 
         }    
-    }        
-    public function SUM(){     
-        $user_id=$_SESSION['user_id'];         
-        $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HT FROM `Achat` WHERE  `id_users`='$user_id' ");         
-        $SUM=$this->db->resultSet();  
-        return $SUM;                      
-    }                       
+    }           
+    public function SUM(){  
+        if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND empty($_POST['frsR']) AND empty($_POST['ChantierR']) ){ 
+            $toDate=$_POST['to_date'];  
+            $fromDate=$_POST['from_date'];   
+            $user_id=$_SESSION['user_id'];     
+            $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HT FROM `Achat` WHERE `date` BETWEEN '$fromDate' AND '$toDate' AND   `id_users`='$user_id' ");         
+            $SUM=$this->db->resultSet();  
+            return $SUM;        
+        }if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND !empty($_POST['frsR']) AND !empty($_POST['ChantierR'])){ 
+            $user_id=$_SESSION['user_id']; 
+            $frsR=$_POST['frsR'];
+            $toDate=$_POST['to_date'];  
+            $fromDate=$_POST['from_date']; 
+            $ChantierR=$_POST['ChantierR'];        
+            $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HT FROM `Achat` WHERE  `id_users`='$user_id' AND `Chantier`='$ChantierR' AND `FAS`='$frsR' AND `date` BETWEEN '$fromDate' AND ' $toDate'");         
+            $SUM=$this->db->resultSet();  
+            return $SUM;  
+        }else{  
+            $user_id=$_SESSION['user_id'];         
+            $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HT FROM `Achat` WHERE  `id_users`='$user_id' ");          
+            $SUM=$this->db->resultSet();  
+            return $SUM;  
+        }             
+    }                               
     public function rowCol(){  
         $user_id=$_SESSION['user_id'];         
         $result=$this->db->query("SELECT count(*) FROM `Achat`  WHERE  `id_users`='$user_id'");            
