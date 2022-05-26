@@ -1,3 +1,6 @@
-<?php foreach($Data as $value):?>
-        <option  value='<?= $value['Fas']?>'></option>   
-<?php endforeach;?> 
+<option Selected>select fornisseur</option>
+<?php
+foreach($Data as $key => $value):?>
+        <option  value="<?= $value['Fas']?>"><?=$value['Fas']?></option>   
+<?php endforeach;?>
+  

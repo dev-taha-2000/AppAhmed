@@ -44,14 +44,12 @@ class Ashat extends Controller{
     }     
     
     public function autoCompletChantier(){  
-        $chantier=$_POST['chantier'];
         $result=$this->CrudeAchat->autoCompletChantier($chantier); 
-        $this->view('pages/autoCompleteChantier',$result);       
-    }  
-    public function autoCompleteFrs(){
-        $frs=$_POST['frs'];
-        $result=$this->CrudeAchat->autoCompleteFrs($frs);  
-        $this->view('pages/autoCompleteFrs',$result);  
+        $this->view('pages/autoCompleteChantier',$result,null);       
+    }     
+    public function autoCompletFrs(){ 
+        $result=$this->CrudeAchat->autoCompleteFrs();      
+        $this->view('pages/autoCompleteFrs',$result,null);  
     }  
     public function DeleteAchat(){
         $id_Achat=$_POST['id_Achat'];   

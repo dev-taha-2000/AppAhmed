@@ -22,7 +22,7 @@ class Achat{
             $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$from' AND '$to' limit 11");        
             $result = $this->db->resultSet();  
             return $result;   
-        }
+        } 
         if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND !empty($_POST['frsR']) AND !empty($_POST['ChantierR'])){
             $from=$_POST['from_date'];
             $to=$_POST['to_date'];
@@ -120,13 +120,13 @@ class Achat{
     } 
     public function autoCompletChantier($chantier){ 
         $user_id=$_SESSION['user_id'];    
-        $this->db->query("SELECT `Chantier` FROM `Achat` WHERE  `id_users`='$user_id' AND  `Chantier` LIKE '%$chantier%'  limit 5");  
+        $this->db->query("SELECT `Chantier` FROM `Achat` WHERE  `id_users`='$user_id' GROUP BY `Chantier`");  
         $result=$this->db->resultSet();  
         return $result;    
     }
-    public function autoCompleteFrs($frs){
+    public function autoCompleteFrs(){  
         $user_id=$_SESSION['user_id'];    
-        $this->db->query("SELECT `Fas` FROM `Achat` WHERE  `id_users`='$user_id' AND  `Fas` LIKE '%$frs%'  limit 5"); 
+        $this->db->query("SELECT `Fas` FROM `Achat` WHERE  `id_users`='$user_id' GROUP BY `Fas`");  
         $result=$this->db->resultSet();  
         return $result; 
     }

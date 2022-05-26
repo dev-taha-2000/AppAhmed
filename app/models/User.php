@@ -1,6 +1,8 @@
 <?php
 class User {
     private $db;
+    private $username;
+    private $password;
     public function __construct() 
     {
         $this->db = new Database;
@@ -17,21 +19,19 @@ class User {
             return true;
         }else{  
             return false; 
-        }  
+        }   
     } 
-    public function login($username, $password){
+    public function login($username,$password){ 
         $this->db->query('SELECT * FROM users where username = :username'); 
         $this->db->bind(':username', $username);  
-        $row = $this->db->singlee();
-
-        $hash_password = $row->password; 
-
-        if(password_verify($password, $hash_password)){
+        $row = $this->db->singlee(); 
+        $hash_password = $row->password;     
+        if(password_verify($password,$hash_password)){
             return $row; 
         }else{
             return false;  
-        }  
-    }  
+        }   
+    }       
 
     public function getUserById($id){  
         $this->db->query('SELECT * FROM users WHERE id_user = :id');

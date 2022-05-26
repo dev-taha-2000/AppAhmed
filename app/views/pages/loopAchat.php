@@ -1,6 +1,6 @@
 
-<table class="table mt-2 border-primary shadow p-3 mb-5 bg-body rounded">   
-    <tr class=" bg-primary "> 
+<table class="table mt-2  table table-striped table-hover">   
+    <tr>  
         <th>DATE</th> 
         <th>DESIGNATION</th>  
         <th>TYPE</th>  
@@ -12,7 +12,7 @@
         <th>OPTIONS</th>    
     </tr> 
 <?php foreach ($Data as $value){?>     
-    <tr id="search-result" class="shadow-none p-3 mb-5 bg-light rounded">      
+    <tr id="search-result" >      
         <td><?php echo $value['date'] ?></td>   
         <td><?php echo $value['Designation'] ?></td>
         <td><?php echo $value['Type'] ?></td> 
@@ -41,7 +41,7 @@
     <?php
     $totalPage=ceil($rowCount/13);
     ?>
-    <div class="d-flex mb-5 p-2" style="display:inline-block;margin-top:-50px"> 
+    <div class="d-flex mb-5 p-2" style="display:inline-block;margin-top:-20px"> 
        <?php for($i=1;$i<=$totalPage;$i++):?>
        <button class="pagination btn btn-outline-primary" id="<?=$i?>"><?=$i?></button> 
        <?php endfor ;?>

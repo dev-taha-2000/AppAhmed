@@ -1,10 +1,8 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css"> 
 <div class="col-2 bg-primary aside text-center" style="height:100vh;">
-    <form class=" border border-primary" id ="form" enctype="multipart/form-data" method="post">
-    <div class="upload m-auto bg-light mt-3 rounded-circle " style="height:100px;width:120px;"> 
-        <!-- LOGO --> 
-    </div>  
-    </form> 
+    <div class=" m-auto  mt-3 bg-light w-75 rounded" style="height: 120px;"> 
+        <img src="<?= URLROOT ?>/img/logo.png" class="h-100 w-100">
+    </div> 
     <div id="myDIV">
     <a href="<?php echo URLROOT ?>/Pages/profile"><button class="w-75  p-2 btn btn-light mt-3">dachboard</button></a>  
     <a href="<?php echo URLROOT ?>/Ashat"><button class="w-75 mt-3 p-2 btn btn-light">Les achats</button></a>  

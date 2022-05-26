@@ -17,13 +17,13 @@ class Database {
   private $error; 
 
   public function __construct(){
-    // Set DSN
+  // Set DSN
     $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
     $options = array(
       PDO::ATTR_PERSISTENT => true,
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     );  
-    // Create PDO instance
+  // Create PDO instance
     try{ 
       $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
     } catch(PDOException $e){
@@ -32,19 +32,19 @@ class Database {
     } 
   }  
 
-    // Prepare statement with query
+  // Prepare statement with query
   public function query($sql){
     $this->stmt = $this->dbh->prepare($sql);
   } 
 
-    // Bind values
+  // Bind values  
   public function bind($param, $value, $type = null){
     if(is_null($type)){
-      switch(true){
+      switch(true){  
         case is_int($value):
           $type = PDO::PARAM_INT; 
-          break;
-        case is_bool($value):
+          break;  
+        case is_bool($value): 
           $type = PDO::PARAM_BOOL;
           break; 
         case is_null($value): 
@@ -54,22 +54,22 @@ class Database {
           $type = PDO::PARAM_STR;
       }  
     }
-      $this->stmt->bindValue($param, $value, $type);
+      $this->stmt->bindValue($param, $value, $type); 
   }  
 
-    // Execute the prepared statement
+  // Execute the prepared statement
   public function execute(){  
     return $this->stmt->execute();     
   }  
 
-    // Get result set as array of objects
+  // Get result set as array of objects
   public function resultSet(){  
     $this->execute(); 
     $result=$this->stmt->fetchAll(PDO::FETCH_ASSOC);  
     return $result;
   }
 
-    // Get single record as object
+  // Get single record as object
   public function single(){  
     $this->execute();
     return $this->stmt->fetch();   
@@ -78,7 +78,7 @@ class Database {
     $this->execute();
     return $this->stmt->fetch(PDO::FETCH_OBJ);  
   } 
-    // Get row count 
+  // Get row count 
   public function rowCount(){  
     return $this->stmt->rowCount();
   }  

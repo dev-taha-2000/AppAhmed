@@ -2,7 +2,7 @@
 class Users extends Controller{  
     public function __construct(){
         $this->modelUser=$this->model('User');  
-    } 
+    }    
     public function register(){  
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); 
@@ -35,11 +35,11 @@ class Users extends Controller{
             $data = [  
                'username' => $_POST['username'], 
                'password' => $_POST['password'],   
-            ]; 
+            ];      
             
             //make sure error are empty 
             if(!empty($data['username']) && !empty($data['password'])){
-                $loggedInUser = $this->modelUser->login($data['username'], $data['password']);
+                $loggedInUser = $this->modelUser->login($data['username'],$data['password']);
                 if($loggedInUser){ 
                     //create session  
                     $this->createUserSession($loggedInUser);  
