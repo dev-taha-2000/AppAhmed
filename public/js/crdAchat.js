@@ -20,6 +20,7 @@ function DeleteAchat(id_Achat){
     }    
 }  
 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $(document).ready(function(){  
     $('#addAchat').click(function(e){  
         e.preventDefault(); 
@@ -43,7 +44,7 @@ $(document).ready(function(){
                 success:function(){
                     load_data();
                     document.write(sweet);
-                }    
+                }     
             });  
         }else if(id_Achat != "" && date != '' && designation != ''&& type != ''&& frs != ''&& Quantité != '' && prix_Unitaire !='' &&  Mantant_HT !='' && Chantier != ''){  
             $.ajax({
@@ -59,7 +60,7 @@ $(document).ready(function(){
                 }),    
                 success:function(){
                     load_data();
-                    document.write(swee); 
+                    document.write(swee);  
                 }      
             });   
         }else{   

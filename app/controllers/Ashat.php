@@ -1,11 +1,10 @@
-<?php  
-class Ashat extends Controller{   
+<?php   
+class Ashat extends Controller{    
     public function __construct(){
         if(empty($_SESSION['username']) || empty($_SESSION['email'])){
             redirect('users/login'); 
-        } 
+        }     
         $this->CrudeAchat=$this->model('Achat');   
-        $this->PROFILE=$this->model('User');    
     }   
     public function tableAchat(){   
         if(!empty($_POST['page'])){ 
@@ -13,18 +12,18 @@ class Ashat extends Controller{
         }else{
             $page=1; 
         }  
-        $fetch=13; 
-        $start=($page-1)*$fetch;  
+        $fetch=11; 
+        $start=($page-1)*$fetch;   
         $Data=$this->CrudeAchat->SelectAchat($start); 
         $rowCount=$this->CrudeAchat->rowCol();    
-        $this->view('pages/loopAchat',$Data,$rowCount,null);               
-    }         
+        $this->view('Achat/loopAchat',$Data,$rowCount);                 
+    }          
     public function SUM(){ 
         $SUM=$this->CrudeAchat->SUM(); 
-        $this->viewColaps('pages/TMM',$SUM);   
+        $this->viewColaps('Achat/TMM',$SUM);    
     }                        
     public function index(){ 
-        $this->view('pages/Achat');        
+        $this->view('Achat/Achat');        
     }   
     public function insertAchat(){  
        $Achat=[ 
@@ -45,11 +44,11 @@ class Ashat extends Controller{
     
     public function autoCompletChantier(){  
         $result=$this->CrudeAchat->autoCompletChantier($chantier); 
-        $this->view('pages/autoCompleteChantier',$result,null);       
+        $this->view('Achat/autoCompleteChantier',$result,null);       
     }     
     public function autoCompletFrs(){ 
         $result=$this->CrudeAchat->autoCompleteFrs();      
-        $this->view('pages/autoCompleteFrs',$result,null);  
+        $this->view('Achat/autoCompleteFrs',$result,null);  
     }  
     public function DeleteAchat(){
         $id_Achat=$_POST['id_Achat'];   

@@ -22,13 +22,13 @@ class User {
         }   
     } 
     public function login($username,$password){ 
-        $this->db->query('SELECT * FROM users where username = :username'); 
+        $this->db->query('SELECT * FROM `users` where username= :username'); 
         $this->db->bind(':username', $username);  
-        $row = $this->db->singlee(); 
-        $hash_password = $row->password;     
+        $row=$this->db->single();   
+        $hash_password = $row['password'];       
         if(password_verify($password,$hash_password)){
             return $row; 
-        }else{
+        }else{   
             return false;  
         }   
     }       
@@ -40,27 +40,18 @@ class User {
 
         return $row;  
     }  
-    public function Profile(){  
-        if(isset($_FILES["image"]["name"])){
-            $id_user=$_SESSION['user_id']; 
-            $target="img_apload/".basename($_FILES['image']['name']);    
-            $nameImg=$_FILES['image']['name'];  
-            $this->db->query("UPDATE `users` SET `image`='$nameImg' WHERE `id_user`='$id_user'");
-            $this->db->execute(); 
-            move_uploaded_file($_FILES['image']['tmp_name'],$target);
-        } 
-    }  
-    
-    public function findUserByEmail($email , $username){
-        $this->db->query('SELECT * FROM users WHERE email = :email AND username = :username');
+
+    public function findUserByEmail($email){
+        $this->db->query("SELECT * FROM users WHERE email = :email"); 
         $this->db->bind(':email', $email);
-        $this->db->bind(':username', $username);
-        $row = $this->db->single();  
-        //check the row 
+  
+        $row = $this->db->single();
+  
+        //Check Rows
         if($this->db->rowCount() > 0){
-            return true; 
-        }else{
-            return false;
-        }   
-    }   
+          return true;
+        } else {
+          return false;
+        }
+    } 
 }  

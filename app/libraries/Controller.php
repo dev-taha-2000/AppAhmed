@@ -9,9 +9,9 @@
       // Require model file
       require_once '../app/models/' . $model . '.php'; 
 
-      return new $model();  
+      return new $model();   
     }    
-    public function view($view,$Data=null,$rowCount=null){          
+    public function view($view,$Data=null,$rowCount=null){            
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 

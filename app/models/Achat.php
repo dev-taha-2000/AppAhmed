@@ -2,16 +2,16 @@
 <?php 
 
 class Achat{   
-    private $db; 
+    private $db;  
     public function __construct() 
     {
         $this->db = new Database;  
-    }    
-    public function SelectAchat($start){    
+    }              
+    public function SelectAchat($start){     
         if(!empty($_POST['Search'])){ 
             $user_id=$_SESSION['user_id'];              
             $search=$_POST['Search'];  
-            $this->db->query("SELECT *FROM  `Achat`  WHERE   `id_users`='$user_id' AND   `Chantier` LIKE '%$search%'  OR `Fas` LIKE '%$search%'  limit 11");
+            $this->db->query("SELECT *FROM  `Achat`  WHERE  `id_users`='$user_id' AND   `Fas` LIKE '%$search%'    limit 11"); 
             $result = $this->db->resultSet();
             return $result;            
         }                 
@@ -29,12 +29,12 @@ class Achat{
             $frsR=$_POST['frsR'];
             $ChantierR=$_POST['ChantierR'];    
             $user_id=$_SESSION['user_id'];         
-            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id' AND `FAS`='$frsR' AND `Chantier`='$ChantierR' AND `date` BETWEEN '$from' AND '$to' ");         
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id' AND `FAS`='$frsR' AND `Chantier`='$ChantierR' AND `date` BETWEEN '$from' AND '$to' limit 11");         
             $result = $this->db->resultSet(); 
             return $result;  
         }else{
             $user_id=$_SESSION['user_id'];         
-            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,13");         
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,11");         
             $result = $this->db->resultSet();
             return $result; 
         }    
@@ -69,8 +69,7 @@ class Achat{
         $rowCount=$this->db->fetchCol();   
         return $rowCount; 
     }     
-    public function insertAchat($Achat){ 
-        
+    public function insertAchat($Achat){  
         $date=$Achat['date']; 
         $Designation= $Achat['Designation']; 
         $Type=$Achat['Type']; 

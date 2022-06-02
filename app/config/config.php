@@ -6,8 +6,8 @@
   define('DB_NAME', 'App_Ahmed');  
 
   // App Root
-  define('APPROOT', dirname(dirname(__FILE__)));
-  // URL Root
+  define('APPROOT', dirname(dirname(__FILE__))); 
+  // URL Root 
   define('URLROOT', 'http://localhost/AppAhmed');   
   // Site Name
   define('SITENAME', 'Taha Dourhmi'); 

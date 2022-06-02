@@ -1,13 +1,13 @@
 $(document).ready(function(){ 
     // ::::::::::::::::la date:::::::::::::::::::::
           $.datepicker.setDefaults({  
-              dateFormat:'yy-mm-dd'    
+              dateFormat:'yy-dd-mm'    
           });  
           $(function(){ 
               $("#from_date").datepicker();  
               $("#to_date").datepicker();  
           }); 
-    // :::::::::::::get TVA mHT mTTC:::::::::::::::
+    // :::::::::::::get TVA mHT mTTC::::::::::::::: 
       $(document).ready(function(){
           $.ajax({  
               url:$('#SUM').val(),  
@@ -15,9 +15,9 @@ $(document).ready(function(){
               success:function(data)  
               {  
                 $('#tmm').html(data);    
-              }   
+              }    
           }); 
-      }); 
+      });   
     //::::::::::::::::::::::get FRS and Chantier from data base and fill select::::::::::::::::::::::::::::::::::
     $(document).ready(function(){ 
       $('.bi').click(function(){   
@@ -36,19 +36,19 @@ $(document).ready(function(){
       });  
     });         
     //:::::::::::::::search par date or frs and chantier and get sum for search:::::::::::::::::::::::::::  
-      $('#filterDate').click(function(){ 
+      $('#filterDate').click(function(){  
         var from_date = $('#from_date').val();   
         var to_date = $('#to_date').val();
         var frsR = $('#frsR').val();   
         var ChantierR = $('#ChantierR').val();  
         $.ajax({  
-          url:$('#SUM').val(),  
-          method:"POST",  
-          data:{from_date:from_date,to_date:to_date,frsR:frsR,ChantierR:ChantierR},     
+          url:$('#SUM').val(),    
+          method:"POST",   
+          data:{from_date:from_date,to_date:to_date,frsR:frsR,ChantierR:ChantierR},        
           success:function(data){ 
             console.log(data);                
             $('#tmm').html(data);
-          }   
+          }    
         }); 
           $.ajax({  
             url:$('#searchDate').val(),   

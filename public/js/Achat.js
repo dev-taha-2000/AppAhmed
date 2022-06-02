@@ -1,5 +1,4 @@
-load_table();
-function load_data(Search){  
+function load_data(Search){   
     
     $.ajax({ 
         url:$('#URLROOT').val(), 
@@ -7,35 +6,35 @@ function load_data(Search){
         data:{Search:Search},    
         success:function(data){   
             $('#fetch').html(data);
-            console.log('table'); 
-        }
-    });             
+            console.log('table');
+        }    
+    });                 
 }   
+$('#search').keyup(function(){  
+    var search = $(this).val(); 
+    load_data(search);  
+});    
+//:::::::::::::::::::controle page::::::::::::::::::::::::::::::  
+load_table(); 
 function load_table(page){  
     
     $.ajax({ 
-        url:$('#URLROOT').val(), 
+        url:$('#URLROOT').val(),  
         method:'POST', 
         data:{page:page},    
         success:function(data){   
             $('#fetch').html(data);
-            console.log('table'); 
-        }
+        } 
     });             
 }   
 $(document).ready(function(){ 
    
     $(document).on('click','.pagination',function(){
         var page=$(this).attr("id"); 
-       load_table(page) 
-    }); 
-    
-    $('#search').keyup(function(){  
-       var search = $(this).val(); 
-       load_data(search);  
-    });     
+        load_table(page) 
+    });   
     $.datepicker.setDefaults({  
-        dateFormat: 'yy-mm-dd'    
+        dateFormat: 'dd-mm-yy'    
     });  
     
     $(function(){  
