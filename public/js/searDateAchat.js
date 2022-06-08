@@ -1,11 +1,11 @@
 $(document).ready(function(){ 
     // ::::::::::::::::la date:::::::::::::::::::::
           $.datepicker.setDefaults({  
-              dateFormat:'yy-dd-mm'    
-          });  
+            dateFormat:'yy-mm-dd'     
+          });   
           $(function(){ 
-              $("#from_date").datepicker();  
-              $("#to_date").datepicker();  
+            $("#from_date").datepicker();   
+            $("#to_date").datepicker();  
           }); 
     // :::::::::::::get TVA mHT mTTC::::::::::::::: 
       $(document).ready(function(){
@@ -14,7 +14,7 @@ $(document).ready(function(){
               method:"POST",       
               success:function(data)  
               {  
-                $('#tmm').html(data);    
+                $('#tmm').html(data);     
               }    
           }); 
       });   
@@ -22,13 +22,13 @@ $(document).ready(function(){
     $(document).ready(function(){ 
       $('.bi').click(function(){   
        $.ajax({ 
-        url:'<?php echo URLROOT?>/Ashat/autoCompletFrs',
+        url: $('#autoCompleteFRS').val(),
         method:'POST',
        }).done(function(response){ 
          $('#frsR').html(response);   
        });  
        $.ajax({ 
-        url:'<?php echo URLROOT?>/Ashat/autoCompletChantier', 
+        url:$('#autoCompleteChentier').val(), 
         method:'POST',
        }).done(function(response){ 
          $('#ChantierR').html(response);   
@@ -61,10 +61,10 @@ $(document).ready(function(){
           });   
       });               
 });     
-        
+
   //:::::::::::::::::::::::::::::::::::::::::SVG:::::::::::::::::::::::::::::::::::::::::
   $(document).ready(function(){
-    $('#precise').css('display','none'); 
+    $('#precise').css('display','none');  
     $('#sélectionner').click(function(){  
       $('#precise').css('display','block');
     });

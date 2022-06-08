@@ -6,10 +6,10 @@ $(document).ready(function(){
       });  
           
       $(function(){  
-          $("#date").datepicker();
-          $("#date_échéance").datepicker(); 
-          $("#from_date").datepicker();  
-          $("#to_date").datepicker();    
+        $("#date").datepicker();
+        $("#date_échéance").datepicker();   
+        $("#from_date").datepicker();  
+        $("#to_date").datepicker();    
       });   
   }); 
     //:::::::::::::get TVA mHT mTTC:::::::::::::::   

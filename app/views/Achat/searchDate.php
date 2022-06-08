@@ -29,21 +29,3 @@
     </div>
   </div> 
 </div> 
-<script>
-   $(document).ready(function(){ 
-      $('.bi').click(function(){   
-       $.ajax({ 
-        url:'<?php echo URLROOT?>/Ashat/autoCompletFrs',
-        method:'POST',
-       }).done(function(response){ 
-         $('#frsR').html(response);   
-       });  
-       $.ajax({ 
-        url:'<?php echo URLROOT?>/Ashat/autoCompletChantier', 
-        method:'POST',
-       }).done(function(response){ 
-         $('#ChantierR').html(response);   
-       });  
-      });  
-    });      
-</script>

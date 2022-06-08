@@ -2,16 +2,21 @@
 class vent {
     private $db;
     private $user_id; 
-    private $vents;  
     private $id_facture;  
+    private $search;
+    private $fromDate;
+    private $toDate;
+    private $client;
+    private $Date;
+    private $result;    
     public function __construct() 
     {
         $this->db = new Database;   
     }  
            
     public function select($user_id,$star){    
-        if(!empty($_POST['search'])){   
-            $search=$_POST['search'];
+        if(!empty($_POST['search'])){    
+            $search=$_POST['search']; 
             $this->db->query("SELECT *FROM  `vents`  WHERE   `id_users`='$user_id' AND   `client` LIKE '%$search%'  limit 11"); 
             $result = $this->db->resultSet();
             return $result;            
@@ -68,7 +73,7 @@ class vent {
             $fromDate=$_POST['from_date'];$toDate=$_POST['to_date'];$client=$_POST['client'];    
             $this->db->query("SELECT SUM(`Manant_HT`) AS total_HT FROM `vents` WHERE `date` BETWEEN '$fromDate' AND '$toDate' AND   `id_users`='$user_id' ");         
             $SUM=$this->db->resultSet();  
-            return $SUM;        
+            return $SUM;         
         }if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND !empty($_POST['client'])){ 
             $fromDate=$_POST['from_date'];$toDate=$_POST['to_date'];$client=$_POST['client'];           
             $this->db->query("SELECT SUM(`Manant_HT`) AS total_HT FROM `vents` WHERE  `id_users`='$user_id' AND  `client`='$client' AND `date` BETWEEN '$fromDate' AND ' $toDate'");         

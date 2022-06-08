@@ -1,8 +1,8 @@
 
 <?php 
 
-class Achat{   
-    private $db;  
+class Achats{   
+    private $db;
     public function __construct() 
     {
         $this->db = new Database;  

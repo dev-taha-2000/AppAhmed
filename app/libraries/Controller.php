@@ -11,7 +11,7 @@
 
       return new $model();   
     }    
-    public function view($view,$Data=null,$rowCount=null){            
+    public function view($view,$Data=null,$rowCount=null){             
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 
@@ -20,7 +20,16 @@
         die('View does not exist'); 
       } 
     }                 
-    public function viewColaps($view,$SUM){           
+    public function viewbanque($view,$Data){             
+      // Check for view file 
+      if(file_exists('../app/views/' . $view . '.php')){
+        require_once '../app/views/' . $view . '.php'; 
+      } else {
+        // View does not exist 
+        die('View does not exist'); 
+      } 
+    }                 
+    public function viewColaps($view,$SUM,$SUMSurCharge=null,$SUMSurVent=null,$tv=null){               
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 

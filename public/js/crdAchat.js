@@ -2,7 +2,7 @@ function DeleteAchat(id_Achat){
     if(window.confirm('Voulez-vous vraiment supprimer ?')) 
     {
        $.ajax({  
-        url:$('#deleteAchat').val(),
+        url:$('#deleteAchat').val(), 
         method:'POST',
         data:{id_Achat:id_Achat},
         sweet:Swal.fire({ 
@@ -91,7 +91,7 @@ function UpdateAchat(id_Achat,date,designation,Type,Fas,Quantité,prix_Unitaire,
     document.getElementById('exampleModalLabel').innerText='modifier achat'; 
     document.getElementById('date').value=date; 
     document.getElementById('Designation').value=designation; 
-    document.getElementById('Type').value=Type;
+    document.getElementById('Type').value=Type; 
     document.getElementById('frs').value=Fas;
     document.getElementById('Quantité').value=Quantité;
     document.getElementById('prix_Unitaire').value=prix_Unitaire;

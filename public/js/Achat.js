@@ -1,7 +1,7 @@
 function load_data(Search){   
     
     $.ajax({ 
-        url:$('#URLROOT').val(), 
+        url:'http://localhost/AppAhmed/Achat/tableAchat', 
         method:'POST', 
         data:{Search:Search},    
         success:function(data){   
@@ -19,7 +19,7 @@ load_table();
 function load_table(page){  
     
     $.ajax({ 
-        url:$('#URLROOT').val(),  
+        url:'http://localhost/AppAhmed/Achat/tableAchat',  
         method:'POST', 
         data:{page:page},    
         success:function(data){   
@@ -34,7 +34,7 @@ $(document).ready(function(){
         load_table(page) 
     });   
     $.datepicker.setDefaults({  
-        dateFormat: 'dd-mm-yy'    
+        dateFormat: 'yy-mm-dd'    
     });  
     
     $(function(){  

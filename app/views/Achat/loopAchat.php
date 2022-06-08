@@ -1,20 +1,3 @@
-<style>
-    table {
-    border-radius:15px;
-    overflow: hidden; 
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
-  }
-  thead tr{  
-    height:50px;
-    font-size:18px;
-    color:white; 
-  } 
-  tbody tr{
-    height:48px;
-    background-color:white;
-  }  
-</style>
 <table class="table mt-2"> 
     <thead>  
         <tr class="bg-primary">  

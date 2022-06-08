@@ -34,6 +34,6 @@
             </div>  
        </div>
     </form>    
-    <script src="<?= URLROOT?>/js/ValidLogin.js"></script>
+    <script src="<?= URLROOT?>/js/ValidLogin.js"></script> 
 </body>
 </html>  

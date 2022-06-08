@@ -21,15 +21,16 @@
         width:100%;
     }
     .containerB .col{
-        background:rgb(33, 33, 33);
+        background:rgb(33, 33, 33); 
     } 
     header{
         height:50px;
         position:relative;
         top:20px;
     }
-    .bg-secondary{
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;    }
+    .bg-light{
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    } 
     #logo{
         width:200px;
         height: 100%;
@@ -42,12 +43,12 @@
         position:relative;
         top:130px; 
     } 
-    .bg-secondary{
+    .bg-light{
         width:400px;
     }  
     </style>
 </head>
-<body >   
+<body>    
     <div class="containerA">   
         <header class="d-flex justify-content-between align-items-center">
             <div>
@@ -67,29 +68,29 @@
             <a href="<?=URLROOT?>/users/register"><button class="btn btn-info">Commencer</button></a> 
         </div> 
     </div>
-    <div class="containerB w-100"> 
-          <div class="w-100 m-auto mt-5 d-flex flex-wrap justify-content-evenly">
-                <div class="bg-secondary mt-5 border rounded  text-center p-2" >
+    <div class="containerB w-100" style="background-color:rgb(198, 216, 244)"> 
+          <div class="w-100 m-auto  d-flex flex-wrap justify-content-evenly">
+                <div class="bg-light mt-5 border rounded  text-center p-2" >
                     <h2 class="text-center">TVA</h2>
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
                 </div>
-                <div class="bg-secondary mt-5 border rounded  text-center p-2">
+                <div class="bg-light mt-5 border rounded  text-center p-2">
                     <h2  class="text-center">montant_ht</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quas illo adipisci enim reprehenderit soluta minus dignissimos voluptate aspernatur neque nisi porro cum maxime animi, quia rem accusamus veritatis inventore?
                 </div> 
-                <div class="bg-secondary mt-5 border rounded  text-center p-2">
+                <div class="bg-light mt-5 border rounded  text-center p-2">
                     <h2  class="text-center">montant_TTC</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti eos cupiditate cumque nulla nostrum perspiciatis doloremque, reprehenderit quaerat, beatae, assumenda quo. Iste commodi explicabo esse atque obcaecati corporis? Alias!
                 </div> 
-                <div class="bg-secondary mt-5 border rounded  text-center p-2">
+                <div class="bg-light mt-5 border rounded  text-center p-2">
                     <h2 class="text-center">Chantier</h2>
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
                 </div>
-                <div class="bg-secondary mt-5 border rounded  text-center p-2">
+                <div class="bg-light mt-5 border rounded  text-center p-2">
                     <h2  class="text-center">Client</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quas illo adipisci enim reprehenderit soluta minus dignissimos voluptate aspernatur neque nisi porro cum maxime animi, quia rem accusamus veritatis inventore?
                 </div> 
-                <div class="bg-secondary mt-5 border rounded  text-center p-2">  
+                <div class="bg-light mt-5 border rounded  text-center p-2">  
                     <h2  class="text-center">fornusseur</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti eos cupiditate cumque nulla nostrum perspiciatis doloremque, reprehenderit quaerat, beatae, assumenda quo. Iste commodi explicabo esse atque obcaecati corporis? Alias!
                 </div> 

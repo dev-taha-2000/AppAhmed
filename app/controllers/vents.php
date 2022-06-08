@@ -1,5 +1,6 @@
 <?php     
 class Vents extends Controller{
+    const Fetch=11;
     public function __construct(){ 
         if(empty($_SESSION['username']) || empty($_SESSION['email'])){
             redirect('users/login'); 
@@ -9,17 +10,16 @@ class Vents extends Controller{
 
     public function tableVent(){  
         if(!empty($_POST['page'])){ 
-            $page=$_POST['page'];    
+            $page=$_POST['page'];     
         }else{
-            $page=1; 
+            $page=1;  
         }  
-        $fetch=11; 
-        $star=($page-1)*$fetch;  
+        $star=($page-1)*(Self::Fetch);     
         $user_id=$_SESSION['user_id'];  
         $data=$this->vents->select($user_id,$star);       
         $rowCount=$this->vents->rowCol();    
-        $this->view('vents/table',$data,$rowCount);             
-    }     
+        $this->view('vents/table',$data,$rowCount);              
+    }          
     public function insert(){    
         $vents=[
             'client'=>$_POST['client'],      
@@ -56,14 +56,14 @@ class Vents extends Controller{
     public function delete(){ 
         $id_vent=$_POST['id_vents']; 
         if($this->vents->delete($id_vent)){    
-            $this->tablevent();         
+            $this->tablevent();          
         }   
     }  
 
     public function SUM(){ 
         $user_id=$_SESSION['user_id'];      
         $SUM=$this->vents->SUM($user_id);     
-        $this->viewColaps('vents/TMM',$SUM);    
+        $this->viewColaps('vents/TMM',$SUM);     
     }     
     public function imprimer(){    
         $id_facture=$_GET['id_facture']; 
@@ -79,7 +79,7 @@ class Vents extends Controller{
     
     public function index(){  
         $this->view('vents/vents');     
-    }  
+    }   
     
     public function autoCompletClient(){
         $result=$this->vents->autoCompleteClient();       

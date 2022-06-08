@@ -4,7 +4,7 @@
   <?php require APPROOT . '/views/inc/head.php'; ?>    
   <title>Les vents</title>  
 </head> 
-  <body class="overflow-hidden" style="background-color:rgb(199, 218, 241)";> 
+  <body style="";> 
       <div class="row w-100">    
           <?php require APPROOT . '/views/inc/aside.php'; ?>    
           <div class="col-10">   
