@@ -1,7 +1,13 @@
-  function FillTr(clas,id,tr,tbody){
+  function FillTr(clas,id,tr,tbody){ 
     var td=document.createElement('td');
     var input=document.createElement('input'); 
-    input.setAttribute('type',"text");
+    if(id=="compta_date"){
+      input.setAttribute('type',"date");
+    }else if(id=="banque_date"){
+      input.setAttribute('type',"date");  
+    }else{
+      input.setAttribute('type',"text");
+    }
     input.setAttribute('id',id);
     input.setAttribute('class',clas);  
     td.appendChild(input);

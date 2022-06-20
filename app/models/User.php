@@ -7,8 +7,18 @@ class User{
     {
         $this->db = new Database;
     }   
+    
+    public function __set($proprety,$param){
+        echo 'you cant add this  '.$proprety. 'and this value '.$param;  
+    }   
+    public function __get($proprety){ 
+        echo 'this proprety   '.$proprety. ' is not existe';  
+    }  
+    public function __call($propert,$test){  
+        echo 'this function not existe'; 
+        echo $test;
+    }   
 
-    //register new user
     public function register($data){  
         $this->db->query('INSERT INTO `users` (username, email, password) VALUES (:username, :email, :password)');
         $this->db->bind(':username', $data['username']);

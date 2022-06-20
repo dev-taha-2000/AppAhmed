@@ -13,7 +13,7 @@
             <option Selected>select TVA</option> 
             <option value="0.07">7%</option>
             <option value="0.1">10%</option>
-            <option value="0.2">20%</option>  
+            <option value="0.2">20%</option>   
           </select>
         </div>
       <div class="modal-footer">

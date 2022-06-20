@@ -9,7 +9,8 @@ class Achat extends Controller{
             redirect('users/login'); 
         }     
         $this->CrudeAchat=$this->model('Achats');    
-    }   
+    }  
+    
     public function tableAchat(){   
         if(!empty($_POST['page'])){ 
             $page=$_POST['page'];      

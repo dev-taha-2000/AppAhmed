@@ -1,6 +1,9 @@
 <?php   
 class Dashboard extends Controller {
   public function __construct(){  
+    if(empty($_SESSION['username']) || empty($_SESSION['email'])){
+      redirect('users/login'); 
+    }   
     $this->AchatsModal = $this->model('Achats');
     $this->VentsModal = $this->model('Vent');
     $this->banqueModal = $this->model('banque');

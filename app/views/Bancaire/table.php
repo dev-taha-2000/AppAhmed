@@ -81,9 +81,9 @@
       $('#result_compta').css("font-weight","bolder"); 
     }
 
-  });  
-  $('#compta_date').keyup(function(){
-    var valu=$('#compta_date').val()
+  });    
+  $('.compta_date').keyup(function(){
+    var valu=$('.compta_date').val()
     console.log(valu);
-  })  
+  }); 
 </script>
