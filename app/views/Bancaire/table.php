@@ -68,7 +68,6 @@
     if(input<0){
       $('#result_banque').css("color","red");
       $('#result_banque').css("font-weight","bolder");  
-      console.log('yes is negative');
     }else{
       $('#result_banque').css("color","green"); 
       $('#result_banque').css("font-weight","bolder"); 
@@ -83,4 +82,8 @@
     }
 
   });  
+  $('#compta_date').keyup(function(){
+    var valu=$('#compta_date').val()
+    console.log(valu);
+  })  
 </script>
