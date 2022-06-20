@@ -1,4 +1,4 @@
-<table class="w-100"> 
+<table class="w-100 mt-2">   
     <thead> 
       <tr class="text-dark"> 
         <th colspan="4" class="text-center bg-warning ">Chez la comptabilité</th>
@@ -11,7 +11,7 @@
         <th  class="text-center">Crédit</th>
         <th  class="text-center">Date</th>
         <th  class="text-center">libelle</th> 
-        <th  class="text-center">Débit</th>
+        <th  class="text-center">Débit</th> 
         <th  class="text-center">Crédit</th>
         <th>OPTIONS</th>
       </tr>
@@ -20,14 +20,14 @@
       <tbody id="tbody">  
       <?php foreach($Data as $value):?>
         <tr >
-          <td><input style="width:100px" type="text" id="Date_comptaUBT"    class="text-center" value="<?=$value['Date_compta']?>"></td>  
-          <td><input style="width:100px" type="text" id="libelle_comptaUBT" class="text-center" value="<?=$value['libelle_compta']?>"></td>   
-          <td><input style="width:100px" type="text" id="Debit_comptaUBT"   class="text-center" value="<?=$value['Debit_compta']?>"></td>  
-          <td><input style="width:100px" type="text" id="credi_comptaUBT"   class="text-center" value="<?=$value['credi_compta']?>"></td> 
-          <td><input style="width:100px" type="text" id="Date_banqueUBT"    class="text-center" value="<?=$value['Date_banque']?>"></td> 
-          <td><input style="width:100px" type="text" id="libelle_banqueUBT" class="text-center" value="<?=$value['libelle_banque']?>"></td>
-          <td><input style="width:100px" type="text" id="Debit_banqueUBT"   class="text-center" value="<?=$value['Debit_banque']?>"></td>
-          <td><input style="width:100px" type="text" id="credi_banqueUBT"   class="text-center" value="<?=$value['credi_banque']?>"></td> 
+          <td><input style="width:100px;" type="text" id="Date_comptaUBT"    class="text-center" value="<?=$value['Date_compta']?>"></td>  
+          <td><input style="width:100px"  type="text" id="libelle_comptaUBT" class="text-center" value="<?=$value['libelle_compta']?>"></td>   
+          <td><input style="width:100px"  type="text" id="Debit_comptaUBT"   class="text-center" value="<?=$value['Debit_compta']?>"></td>  
+          <td><input style="width:100px"  type="text" id="credi_comptaUBT"   class="text-center" value="<?=$value['credi_compta']?>"></td> 
+          <td><input style="width:100px"  type="text" id="Date_banqueUBT"    class="text-center" value="<?=$value['Date_banque']?>"></td> 
+          <td><input style="width:100px"  type="text" id="libelle_banqueUBT" class="text-center" value="<?=$value['libelle_banque']?>"></td>
+          <td><input style="width:100px"  type="text" id="Debit_banqueUBT"   class="text-center" value="<?=$value['Debit_banque']?>"></td>
+          <td><input style="width:100px"  type="text" id="credi_banqueUBT"   class="text-center" value="<?=$value['credi_banque']?>"></td> 
           <td class="text-center">    
           <a onclick="fill(<?= $value['id_bancaire'] ?>,'<?= $value['Date_compta'] ?>','<?= $value['libelle_compta'] ?>','<?= $value['Debit_compta'] ?>','<?= $value['credi_compta'] ?>','<?= $value['Date_banque'] ?>','<?= $value['libelle_banque'] ?>','<?= $value['Debit_banque'] ?>','<?= $value['credi_banque'] ?>')"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor:pointer">
@@ -46,19 +46,41 @@
     <tfoot>   
       <tr>
         <th colspan="2" class="text-center bg-warning">Solde</th>
-        <th></th>
-        <th></th></br>
+        <th><input type="text" id="SumCompta" class="text-center w-100" value="<?=$SdatCompt[0]['Sumcompta']?>"></th>
+        <th><input type="text" id="SumCompta" class="text-center w-100" value="<?=$SumC_compta[0]['SumC_compta']?>"></th>
         <th colspan="2" class="text-center  bg-info">Solde</th>
-        <th></th>
-        <th></th>
+        <th><input type="text" id="Sumbanque" class="text-center w-100" value="<?=$Sdatbanque[0]['Sumbanque']?>"></th>
+        <th><input type="text" id="Sumbanque" class="text-center w-100" value="<?=$SumC_banque[0]['SumC_banque']?>"></th>
       </tr>
       <tr>
         <td style="border:none"></td> 
         <td style="border:none"></td> 
-        <th class="text-center bg-warning" colspan="2">222,32</th>
+        <th class="text-center bg-warning" colspan="2"><input type="text" class="bg-warning text-center" id="result_compta" value="<?=$result_cpmpta[0]['result_compta']?>"></th>
         <td style="border:none"></td> 
         <td style="border:none"></td>
-        <th class="text-center  bg-info" colspan="2">222,32</th> 
+        <th class="text-center  bg-info" colspan="2"><input type="text"  class="bg-info text-center "  id="result_banque"    value="<?=$result_banque[0]['SumC_banque']?>"></th>  
       </tr>
     </tfoot>      
 </table> 
+<script>
+  $(document).ready(function(){
+    var input=$('#result_banque').val();
+    if(input<0){
+      $('#result_banque').css("color","red");
+      $('#result_banque').css("font-weight","bolder");  
+      console.log('yes is negative');
+    }else{
+      $('#result_banque').css("color","green"); 
+      $('#result_banque').css("font-weight","bolder"); 
+    }
+    var inpucompt=$('#result_compta').val();
+    if(inpucompt<0){
+      $('#result_compta').css("color","red"); 
+      $('#result_compta').css("font-weight","bolder"); 
+    }else{
+      $('#result_compta').css("color","green"); 
+      $('#result_compta').css("font-weight","bolder"); 
+    }
+
+  });  
+</script>

@@ -2,11 +2,10 @@ function load_data(Search){
     
     $.ajax({ 
         url:'http://localhost/AppAhmed/Achat/tableAchat', 
-        method:'POST', 
+        method:'POST',  
         data:{Search:Search},    
         success:function(data){   
-            $('#fetch').html(data);
-            console.log('table');
+            $('#fetch').html(data); 
         }    
     });                 
 }   

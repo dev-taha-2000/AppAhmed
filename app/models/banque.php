@@ -1,6 +1,6 @@
 <?php        
 class banque{
-  
+     
     public function __construct(){
         $this->db = new Database;   
     }     
@@ -32,5 +32,43 @@ class banque{
         $result = $this->db->resultSet();
         return $result;    
     }
+
+    public function Sumcompta($user_id){
+        $this->db->query("SELECT SUM(Debit_compta) AS Sumcompta FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet(); 
+        return $result; 
+    }     
+    public function Sumbanque($user_id){ 
+        $this->db->query("SELECT SUM(Debit_banque) AS Sumbanque FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet(); 
+        return $result;  
+    }
+    public function SumC_compta($user_id){
+        $this->db->query("SELECT SUM(credi_compta) AS SumC_compta FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet(); 
+        return $result;  
+    }
+    public function SumC_banque($user_id){
+        $this->db->query("SELECT SUM(credi_banque) AS SumC_banque FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet(); 
+        return $result;  
+    }
+    public function result_compta($user_id){
+        $this->db->query("SELECT SUM(credi_compta - Debit_compta) AS result_compta FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet();  
+        return $result;  
+    }
+    public function result_banque($user_id){ 
+        $this->db->query("SELECT SUM(credi_banque - Debit_banque) AS SumC_banque FROM `banque`  WHERE  `id_user`='$user_id'");         
+        $result = $this->db->resultSet(); 
+        return $result;  
+    }
+
+    public function rowCol(){  
+        $user_id=$_SESSION['user_id'];        
+        $result=$this->db->query("SELECT count(*) FROM `banque`  WHERE  `id_user`='$user_id'");            
+        $rowCount=$this->db->fetchCol();   
+        return $rowCount; 
+    }  
 }   
   

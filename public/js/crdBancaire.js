@@ -1,15 +1,16 @@
     view();
-   function view(){
-    $.ajax({
-        url:$('#view').val(),
-        method:'post',
-        success:function(data){  
-            $('#table').html(data);
-        }  
-    });
-   } 
-   var savee=document.getElementById('save');
-   savee.addEventListener('click',save);
+    function view(){
+        $.ajax({
+            url:$('#view').val(),
+            method:'post',
+            success:function(data){  
+                $('#table').html(data);  
+            }  
+        });
+    }    
+   
+    var savee=document.getElementById('save');
+    savee.addEventListener('click',save);  
     function save(){  
         var compta_date= document.getElementById('compta_date').value;
         var compta_libelle = document.getElementById('compta_libelle').value;
@@ -23,11 +24,12 @@
             url:$('#insert').val(), 
             method:'POST', 
             data:{compta_date,compta_libelle,compta_debit,compta_credit,banque_date,banque_libelle,banque_debit,banque_credit}, 
-            success:function(){ 
+            success:function(data){ 
+                console.log(data); 
                 view(); 
-            }
+            }  
         });   
-    }
+    } 
 
     function Delete(id_bancaire){     
         if(window.confirm('Voulez-vous vraiment supprimer ?')){ 

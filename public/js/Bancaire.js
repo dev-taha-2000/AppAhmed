@@ -3,7 +3,7 @@
     var input=document.createElement('input'); 
     input.setAttribute('type',"text");
     input.setAttribute('id',id);
-    input.setAttribute('class',clas); 
+    input.setAttribute('class',clas);  
     td.appendChild(input);
     tr.appendChild(td);
     tbody.appendChild(tr);
@@ -13,8 +13,8 @@
     var tr=document.createElement('tr');
     FillTr("w-100 text-center","compta_date",tr,tbody);  
     FillTr("w-100 text-center","compta_libelle",tr,tbody);
-    FillTr("w-100 text-center","compta_debit",tr,tbody);
-    FillTr("w-100 text-center","compta_credit",tr,tbody);
+    FillTr("w-100 text-center","compta_debit",tr,tbody); 
+    FillTr("w-100 text-center","compta_credit",tr,tbody);  
     FillTr("w-100 text-center","banque_date",tr,tbody); 
     FillTr("w-100 text-center","banque_libelle",tr,tbody); 
     FillTr("w-100 text-center","banque_debit",tr,tbody);
@@ -32,4 +32,8 @@
   });    
   var plus=document.getElementById('plus');
   plus.addEventListener('click',AjouterLigne);
+
+  
+         
+                                                       
   

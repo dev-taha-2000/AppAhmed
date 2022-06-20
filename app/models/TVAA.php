@@ -9,11 +9,11 @@ class TVAA {
     public function select($id_user,$star){ 
         if(!empty($_POST['search'])){    
             $search=$_POST['search']; 
-            $this->db->query("SELECT *FROM  `TVA`  WHERE   `id_user`='$id_user' AND   `ORDER` LIKE '%$search%'  limit 11"); 
+            $this->db->query("SELECT *FROM  `TVA`  WHERE   `id_user`='$id_user' AND   `ORDER` LIKE '%$search%'  limit 12");  
             $result = $this->db->resultSet();
             return $result;            
         }else{        
-            $this->db->query("SELECT * FROM `TVA`  WHERE  `id_user`='$id_user'  ORDER BY `DATE_FACT` ASC limit $star,11");         
+            $this->db->query("SELECT * FROM `TVA`  WHERE  `id_user`='$id_user'  ORDER BY `DATE_FACT` ASC limit $star,12");         
             $result = $this->db->resultSet();
             return $result; 
         }     
@@ -32,7 +32,7 @@ class TVAA {
         $result=$this->db->query("SELECT count(*) FROM `TVA`  WHERE  `id_user`='$user_id'");            
         $rowCount=$this->db->fetchCol();    
         return $rowCount; 
-    } 
+    }  
     
     public function delete($id_TVA){ 
         $this->db->query("DELETE FROM `TVA` WHERE `id_TVA`='$id_TVA'");    
@@ -71,9 +71,9 @@ class TVAA {
             $this->db->query("SELECT SUM(`Mantant_HT`) AS total_HTSurCharge FROM `Achat` WHERE  `id_users`='$user_id'");          
             $SUMSurCharge=$this->db->resultSet();  
             return $SUMSurCharge;  
-        }
+        }  
     }
-    public function SUMSurVent($user_id){ 
+    public function SUMSurVent($user_id){  
         if(!empty($_POST['from_date']) AND !empty($_POST['to_date'])){ 
             $to_date=$_POST['to_date'];$from_date=$_POST['from_date'];  
             $this->db->query("SELECT SUM(`manant_HT`) AS total_HTSurVent FROM `vents` WHERE  `id_users`='$user_id'  AND `date` BETWEEN '$from_date' AND '$to_date'");          
@@ -81,7 +81,7 @@ class TVAA {
             return $SUMSurVent;  
         }else{
             $this->db->query("SELECT SUM(`manant_HT`) AS total_HTSurVent FROM `vents` WHERE  `id_users`='$user_id'");          
-            $SUMSurVent=$this->db->resultSet();  
+            $SUMSurVent=$this->db->resultSet();   
             return $SUMSurVent;  
         }
     }

@@ -1,6 +1,6 @@
 <?php   
 class Achat extends Controller{ 
-    const Fetch=11;
+    const Fetch=12; 
     private $Achat;
     private $result;
     private $SUM;
@@ -12,15 +12,15 @@ class Achat extends Controller{
     }   
     public function tableAchat(){   
         if(!empty($_POST['page'])){ 
-            $page=$_POST['page'];     
+            $page=$_POST['page'];      
         }else{
             $page=1; 
         }  
         $start=($page-1)*(Self::Fetch);      
         $Data=$this->CrudeAchat->SelectAchat($start); 
         $rowCount=$this->CrudeAchat->rowCol();    
-        $this->view('Achat/loopAchat',$Data,$rowCount);                  
-    }                             
+        $this->view('Achat/loopAchat',$Data,$rowCount);                
+    }                           
     public function SUM(){ 
         $SUM=$this->CrudeAchat->SUM(); 
         $this->viewColaps('Achat/TMM',$SUM);     
@@ -76,5 +76,5 @@ class Achat extends Controller{
             $this->tableAchat();     
         };  
 
-    } 
+    }
 }  

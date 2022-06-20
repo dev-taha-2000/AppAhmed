@@ -2,7 +2,11 @@
 <?php 
 
 class Achats{   
-    private $db;
+    private $user_id;
+    private $Achat;
+    private $ChantierR;
+    private $from;
+    private $to;
     public function __construct() 
     {
         $this->db = new Database;  
@@ -11,7 +15,7 @@ class Achats{
         if(!empty($_POST['Search'])){ 
             $user_id=$_SESSION['user_id'];              
             $search=$_POST['Search'];  
-            $this->db->query("SELECT *FROM  `Achat`  WHERE  `id_users`='$user_id' AND   `Fas` LIKE '%$search%'    limit 11"); 
+            $this->db->query("SELECT *FROM  `Achat`  WHERE  `id_users`='$user_id' AND   `Fas` LIKE '%$search%'    limit 12"); 
             $result = $this->db->resultSet();
             return $result;            
         }                 
@@ -19,7 +23,7 @@ class Achats{
             $user_id=$_SESSION['user_id'];              
             $from=$_POST['from_date'];  
             $to=$_POST['to_date'];
-            $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$from' AND '$to' limit 11");        
+            $this->db->query("SELECT *FROM `Achat` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$from' AND '$to' limit 12");        
             $result = $this->db->resultSet();  
             return $result;   
         } 
@@ -29,12 +33,12 @@ class Achats{
             $frsR=$_POST['frsR'];
             $ChantierR=$_POST['ChantierR'];    
             $user_id=$_SESSION['user_id'];         
-            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id' AND `FAS`='$frsR' AND `Chantier`='$ChantierR' AND `date` BETWEEN '$from' AND '$to' limit 11");         
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id' AND `FAS`='$frsR' AND `Chantier`='$ChantierR' AND `date` BETWEEN '$from' AND '$to' limit 12");         
             $result = $this->db->resultSet(); 
             return $result;  
         }else{
             $user_id=$_SESSION['user_id'];         
-            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,11");         
+            $this->db->query("SELECT * FROM `Achat`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $start,12");         
             $result = $this->db->resultSet();
             return $result; 
         }    
@@ -63,11 +67,11 @@ class Achats{
             return $SUM;  
         }             
     }                               
-    public function rowCol(){  
+    public function rowCol(){   
         $user_id=$_SESSION['user_id'];         
         $result=$this->db->query("SELECT count(*) FROM `Achat`  WHERE  `id_users`='$user_id'");            
         $rowCount=$this->db->fetchCol();   
-        return $rowCount; 
+        return $rowCount;   
     }     
     public function insertAchat($Achat){  
         $date=$Achat['date']; 
@@ -78,7 +82,7 @@ class Achats{
         $prix_Unitaire=$Achat['prix_Unitaire']; 
         $Mantant_HT=$Achat['Mantant_HT'];  
         $Chantier=$Achat['Chantier'];   
-        $user_id=$Achat['user_id'];      
+        $user_id=$Achat['user_id'];       
         $this->db->query("INSERT INTO `achat` (date , Designation , Type , Fas , Quantité , prix_unitaire , Mantant_HT , Chantier , id_users) VALUES ('$date','$Designation','$Type','$Fas','$Quantité','$prix_Unitaire','$Mantant_HT','$Chantier','$user_id')");
         
         if($this->db->execute()){

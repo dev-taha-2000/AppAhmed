@@ -32,7 +32,7 @@ $(document).ready(function(){
         if(id_Achat == "" && date != ''&& designation != ''&& type != ''&& frs != ''&& Quantité != '' && prix_Unitaire !=''  &&  Mantant_HT !='' && Chantier != ''){
             $.ajax({  
                 url:$('#insetAchat').val(),  
-                method:'POST', 
+                method:'POST',    
                 data:{date:date,designation:designation,type:type,frs:frs,Quantité:Quantité,prix_Unitaire:prix_Unitaire,Mantant_HT:Mantant_HT,Chantier:Chantier},
                 sweet:Swal.fire({
                     position: 'top-center',
@@ -42,7 +42,7 @@ $(document).ready(function(){
                     timer: 1500
                 }),    
                 success:function(){
-                    load_data();
+                    load_data(); 
                     document.write(sweet);
                 }     
             });  

@@ -1,8 +1,8 @@
-<?php
-class User {
-    private $db;
+<?php 
+class User{  
     private $username;
     private $password;
+    private $data;  
     public function __construct() 
     {
         $this->db = new Database;

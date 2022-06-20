@@ -103,6 +103,6 @@ $(document).ready(function(){
         $("#DATE_PAIE").datepicker();
         $("#DATE_FAC").datepicker();  
         $("#from_date").datepicker();
-        $("#to_date").datepicker();  
+        $("#to_date").datepicker();   
     });   
 });  

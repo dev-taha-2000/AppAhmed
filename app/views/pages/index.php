@@ -6,47 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/landing.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Bienvenue à gérant |gérant</title>
+    <link rel="stylesheet" href="<?= URLROOT ?>/css/royal-preload.css">
+    <link rel="stylesheet" href="<?= URLROOT ?>/css/landing.css">
     <style>
     .containerA{ 
-        width:100%;
-        height:100vh;
-        background:url("img/logoopacity.png");
-        background-size:cover;
-        padding-left:30px;
-        padding-right:30px;
-    }  
-    .containerB{
-        height:100vh;
-        width:100%;
-    }
-    .containerB .col{
-        background:rgb(33, 33, 33); 
-    } 
-    header{
-        height:50px;
-        position:relative;
-        top:20px;
-    }
-    .bg-light{
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    } 
-    #logo{
-        width:200px;
-        height: 100%;
-    }
-    nav ul li:hover{
-        color: rgb(76, 181, 247);
-        cursor:pointer; 
-    }
-    #presentation{
-        position:relative;
-        top:130px; 
-    } 
-    .bg-light{
-        width:400px;
-    }  
+    width:100%;
+    height:100vh;
+    background:url("<?=URLROOT?>/img/logoopacity.png");
+    background-size:cover;
+    padding-left:30px;
+    padding-right:30px;
+    }    
     </style>
+    <title>Bienvenue à gérant |gérant</title>
+    <script src="<?= URLROOT ?>/js/jquery.min.js"></script>
+    <script src="<?= URLROOT ?>/js/royal_preloader.min.js"></script> 
+    <script>
+        window.jQuery = window.$ = jQuery;
+        (function($) { "use strict";
+            //Preloader
+            Royal_Preloader.config({
+                mode           : 'logo',
+                logo           : '<?=URLROOT?>/img/Logo Gérant white.png',
+                logo_size: [200,200],
+                showProgress   : true,
+                showPercentage : true,
+                text_colour: '#ffffff',
+                background:  '#000'
+            });
+        })(jQuery);
+    </script>
 </head>
 <body>    
     <div class="containerA">   
@@ -56,8 +45,8 @@
             </div>
             <nav>
                 <ul class="text-light">
-                    <a href="<?=URLROOT?>/users/register"><li class="d-inline-block">Register</li></a>  
-                    <a href="<?=URLROOT?>/users/login"><li class="d-inline-block ms-4">Connexion</li></a>
+                    <a href="<?=URLROOT?>/users/register"><li class="d-inline-block text-info" >Register</li></a>  
+                    <a href="<?=URLROOT?>/users/login"><li class="d-inline-block ms-4 text-info">Connexion</li></a>
                 </ul>
             </nav>
         </header>  

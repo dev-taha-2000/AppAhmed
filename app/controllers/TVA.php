@@ -1,6 +1,6 @@
 <?php     
 class TVA extends Controller{   
-    const Fetch=11;  
+    const Fetch=12;  
     public function __construct(){ 
         if(empty($_SESSION['username']) || empty($_SESSION['email'])){
             redirect('users/login'); 
@@ -59,7 +59,7 @@ class TVA extends Controller{
         }else{
             $tv=0.2;
         }
-        $SUM=$this->TVA->SUM($user_id);     
+        $SUM=$this->TVA->SUM($user_id);      
         $SUMSurCharge=$this->TVA->SUMSurCharge($user_id);     
         $SUMSurVent=$this->TVA->SUMSurVent($user_id);     
         $this->viewColaps('TVA/TMM',$SUM,$SUMSurCharge,$SUMSurVent,$tv);      

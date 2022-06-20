@@ -45,12 +45,12 @@ class Users extends Controller{
             ];      
             
             //make sure error are empty 
-            if(!empty($data['username']) && !empty($data['password'])){
+            if(!empty($data['username']) && !empty($data['password'])){ 
                 $loggedInUser = $this->modelUser->login($data['username'],$data['password']);
                 if($loggedInUser){ 
                     //create session  
                     $this->createUserSession($loggedInUser);  
-                }else{
+                }else{ 
                     echo '<div class=" w-25 text-center m-auto mt-4 alert alert-danger" role="alert">
                         Ce compte nexiste pas
                         </div>'; 
@@ -59,7 +59,7 @@ class Users extends Controller{
                 }
             }else{
                 echo '<div class=" w-25 text-center m-auto mt-4 alert alert-danger" role="alert">
-                remplir tout les chemps
+                remplir tout les chemps 
                 </div>';   
                 $this->view('users/login', $data);   
             }     

@@ -1,6 +1,6 @@
 <?php     
 class Vents extends Controller{
-    const Fetch=11;
+    const Fetch=12; 
     public function __construct(){ 
         if(empty($_SESSION['username']) || empty($_SESSION['email'])){
             redirect('users/login'); 
@@ -60,7 +60,7 @@ class Vents extends Controller{
         }   
     }  
 
-    public function SUM(){ 
+    public function SUM(){
         $user_id=$_SESSION['user_id'];      
         $SUM=$this->vents->SUM($user_id);     
         $this->viewColaps('vents/TMM',$SUM);     

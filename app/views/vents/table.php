@@ -46,7 +46,7 @@
 </table> 
 
     <?php
-        $totalPage=ceil($rowCount/11);  
+        $totalPage=ceil($rowCount/12);   
     ?>
     <div class="d-flex mb-5 p-2" style="display:inline-block;margin-top:-20px"> 
        <?php for($i=1;$i<=$totalPage;$i++):?>

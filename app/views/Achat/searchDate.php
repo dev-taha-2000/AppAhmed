@@ -14,7 +14,7 @@
           <select  id="frsR" name="Type" class="form-select mt-3"  aria-label="Default select example">  
                
           </select>         
-          <select  id="ChantierR" name="Type" class="form-select mt-3"  aria-label="Default select example"> 
+          <select  id="ChantierR" name="Type" class="form-select mt-3"  aria-label="Default select example" > 
                  
           </select>     
         </textera>  

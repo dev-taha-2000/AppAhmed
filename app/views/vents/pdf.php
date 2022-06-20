@@ -1,6 +1,6 @@
 <?php
 require('fpdf184/fpdf.php');  
-$pdf = new FPDF();
+$pdf = new FPDF(); 
 $mentant_HT=$Data[0]['manant_HT']; 
 $date=$Data[0]['date'];  
 $client=$Data[0]['client'];  
@@ -8,10 +8,10 @@ $modde_reg=$Data[0]['modde_Reg'];
 $situation=$Data[0]['situation']; 
 $TVA=(0.2)*($mentant_HT);  
 $TTC=$TVA+$mentant_HT;
-$pdf->AddPage();
+$pdf->AddPage(); 
 $pdf->SetFont('Arial','I',16); 
 $pdf->Cell(70,15,'La Facture de '.$client,1,1,'C');    
-$pdf->ln(10);
+$pdf->ln(10);   
 $pdf->Cell(40,10,'date',1,0,'C'); 
 $pdf->Cell(40,10,'Client',1,0,'C'); 
 $pdf->Cell(40,10,'modde reg',1,0,'C'); 

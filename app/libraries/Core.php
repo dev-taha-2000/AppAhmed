@@ -17,7 +17,11 @@
         $this->currentController = ucwords($url[0]); 
         // Unset 0 Index
         unset($url[0]);   
-      } 
+      }elseif($url==NULL){ 
+        $this->currentController = 'Pages';
+      }else{
+        $this->currentController = 'Errors';
+      }
       
       // Require the controller 
       require_once '../app/controllers/'. $this->currentController. '.php';   

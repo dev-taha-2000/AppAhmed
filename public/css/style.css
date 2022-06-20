@@ -6,11 +6,13 @@ body{
 table{
     border-radius:15px;
     overflow: hidden; 
-    width: 100%;
+    min-width:970px;
+}                      
+table input{ 
+    width: 100px;
 }                      
 thead tr{  
     font-size:13px; 
-    color:rgb(255, 255, 255); 
 } 
 tbody tr{ 
     font-size:14px; 
@@ -22,4 +24,9 @@ tbody tr:hover{
 .aside button:hover{
     background-color: #000;
     color: blue;
+}
+
+.asidebar_active{
+    background-color: #000;
+    color: blue; 
 }

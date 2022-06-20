@@ -1,6 +1,5 @@
 <?php        
-class vent {
-    private $db;
+class vent {  
     private $user_id; 
     private $id_facture;  
     private $search;
@@ -17,23 +16,23 @@ class vent {
     public function select($user_id,$star){    
         if(!empty($_POST['search'])){    
             $search=$_POST['search']; 
-            $this->db->query("SELECT *FROM  `vents`  WHERE   `id_users`='$user_id' AND   `client` LIKE '%$search%'  limit 11"); 
+            $this->db->query("SELECT *FROM  `vents`  WHERE   `id_users`='$user_id' AND   `client` LIKE '%$search%'  limit 12"); 
             $result = $this->db->resultSet();
             return $result;            
         }                 
         if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND empty($_POST['client'])){ 
             $fromDate=$_POST['from_date']; $toDate=$_POST['to_date']; $client=$_POST['client'];           
-            $this->db->query("SELECT *FROM `vents` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$fromDate' AND '$toDate' limit 11");        
+            $this->db->query("SELECT *FROM `vents` WHERE  `id_users`='$user_id' AND  `date` BETWEEN '$fromDate' AND '$toDate' limit 12");        
             $result = $this->db->resultSet();  
             return $result;   
         }     
         if(!empty($_POST['from_date']) AND !empty($_POST['to_date']) AND !empty($_POST['client'])){  
             $fromDate=$_POST['from_date']; $toDate=$_POST['to_date']; $client=$_POST['client'];              
-            $this->db->query("SELECT * FROM `vents`  WHERE  `id_users`='$user_id' AND `client`='$client'  AND `date` BETWEEN '$fromDate' AND '$toDate' limit 11");          
+            $this->db->query("SELECT * FROM `vents`  WHERE  `id_users`='$user_id' AND `client`='$client'  AND `date` BETWEEN '$fromDate' AND '$toDate' limit 12");          
             $result = $this->db->resultSet(); 
             return $result;   
         }else{      
-            $this->db->query("SELECT * FROM `vents`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $star,11");         
+            $this->db->query("SELECT * FROM `vents`  WHERE  `id_users`='$user_id'  ORDER BY `date` DESC limit $star,12");         
             $result = $this->db->resultSet();
             return $result; 
         }    

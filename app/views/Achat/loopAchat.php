@@ -48,4 +48,4 @@
        <?php for($i=1;$i<=$totalPage;$i++):?>
        <button class="pagination" id="<?=$i?>" style="border:2px;width:30px;"><?=$i?></button>
        <?php endfor ;?>
-    </div> 
+    </div>     

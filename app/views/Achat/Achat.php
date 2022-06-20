@@ -17,7 +17,7 @@
             </div>  
             <div class="table-responsive"  id='fetch'>  
 
-            </div>    
+            </div>     
         </div>
         <div>
         <?php include_once 'modalAchat.php'?> 
@@ -29,14 +29,14 @@
    
 </body>  
 </html> 
-<input type="text" id='searchDate'  value="<?php echo URLROOT?>/Achat/tableAchat">  
-<input type="text" id='SUM'         value="<?php echo URLROOT?>/Achat/SUM"> 
-<input type="text" id="URLROOT"     value="<?php echo URLROOT?>/Achat/tableAchat"> 
-<input type="text" id="modifyAchat" value="<?php echo URLROOT;?>/Achat/UpdateAchat">  
-<input type="text" id="deleteAchat" value="<?php echo URLROOT;?>/Achat/deleteAchat">
-<input type="text" id="insetAchat"  value="<?php echo URLROOT;?>/Achat/insertAchat">  
-<input type="text" id="autoCompleteChentier"  value="<?php echo URLROOT?>/Achat/autoCompletChantier">  
-<input type="text" id="autoCompleteFRS"  value="<?php echo URLROOT?>/Achat/autoCompletFrs">   
+<input type="hidden" id='searchDate'  value="<?php echo URLROOT?>/Achat/tableAchat">  
+<input type="hidden" id='SUM'         value="<?php echo URLROOT?>/Achat/SUM"> 
+<input type="hidden" id="URLROOT"     value="<?php echo URLROOT?>/Achat/tableAchat"> 
+<input type="hidden" id="modifyAchat" value="<?php echo URLROOT;?>/Achat/UpdateAchat">  
+<input type="hidden" id="deleteAchat" value="<?php echo URLROOT;?>/Achat/deleteAchat">
+<input type="hidden" id="insetAchat"  value="<?php echo URLROOT;?>/Achat/insertAchat">  
+<input type="hidden" id="autoCompleteChentier"  value="<?php echo URLROOT?>/Achat/autoCompletChantier">  
+<input type="hidden" id="autoCompleteFRS"  value="<?php echo URLROOT?>/Achat/autoCompletFrs">   
 <script src="<?php echo URLROOT; ?>/js/searDateAchat.js"></script>     
 <script src="<?php echo URLROOT; ?>/js/Achat.js"></script>   
 <script src="<?php echo URLROOT; ?>/js/crdAchat.js"></script>   

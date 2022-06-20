@@ -11,7 +11,7 @@
 
       return new $model();   
     }    
-    public function view($view,$Data=null,$rowCount=null){             
+    public function view($view,$Data=null,$rowCount=null,$SdatCompt=null,$Sdatbanque=null,$SumC_compta=null,$SumC_banque=null,$result_cpmpta=null,$result_banque=null){                 
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 
@@ -20,7 +20,7 @@
         die('View does not exist'); 
       } 
     }                 
-    public function viewbanque($view,$Data){             
+    public function viewbanque($view,$Data){              
       // Check for view file 
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php'; 
