@@ -1,5 +1,4 @@
 function load_data(Search){   
-    
     $.ajax({ 
         url:'http://localhost/AppAhmed/Achat/tableAchat', 
         method:'POST',  
@@ -31,13 +30,15 @@ $(document).ready(function(){
     $(document).on('click','.pagination',function(){
         var page=$(this).attr("id"); 
         load_table(page) 
-    });   
-    $.datepicker.setDefaults({  
-        dateFormat: 'yy-mm-dd'    
-    });  
-    
-    $(function(){  
-        $("#date").datepicker();  
-    }); 
-  
+    });     
 });  
+
+$.datepicker.setDefaults({  
+    dateFormat: 'yy-mm-dd'    
+});  
+
+$(function(){  
+    $("#date").datepicker();  
+    $("#from_date").datepicker();   
+    $("#to_date").datepicker();  
+}); 

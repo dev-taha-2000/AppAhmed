@@ -1,12 +1,4 @@
-$(document).ready(function(){ 
-    // ::::::::::::::::la date:::::::::::::::::::::
-          $.datepicker.setDefaults({  
-            dateFormat:'yy-mm-dd'     
-          });   
-          $(function(){ 
-            $("#from_date").datepicker();   
-            $("#to_date").datepicker();  
-          }); 
+$(document).ready(function(){  
     // :::::::::::::get TVA mHT mTTC::::::::::::::: 
       $(document).ready(function(){
           $.ajax({  
