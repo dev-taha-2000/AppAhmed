@@ -7,10 +7,7 @@ class User{
     {
         $this->db = new Database;
     }   
-    
-    public function __set($proprety,$param){
-        echo 'you cant add this  '.$proprety. 'and this value '.$param;  
-    }   
+      
     public function __get($proprety){ 
         echo 'this proprety   '.$proprety. ' is not existe';  
     }  

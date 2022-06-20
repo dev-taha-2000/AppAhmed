@@ -1,8 +1,18 @@
 <?php   
-class Users extends Controller{  
+class Users extends Controller{ 
+    private $data; 
     public function __construct(){
         $this->modelUser=$this->model('User');  
     }     
+  
+    public function __get($proprety){ 
+        echo 'this proprety   '.$proprety. ' is not existe';  
+    }                                              
+    public function __call($propert,$test){  
+        echo 'this function not existe'; 
+        echo $test;
+    }   
+
     public function register(){  
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(!empty($_POST['username']) && !empty($_POST['password'])  && !empty($_POST['email']) ){
