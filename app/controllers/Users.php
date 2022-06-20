@@ -3,8 +3,8 @@ class Users extends Controller{
     private $data; 
     public function __construct(){
         $this->modelUser=$this->model('User');  
-    }     
-  
+    }      
+    
     public function __get($proprety){ 
         echo 'this proprety   '.$proprety. ' is not existe';  
     }                                              

@@ -1,4 +1,16 @@
-<?php     
+<?php 
+final class controlerAbsence{
+    final function getEmplAbsence(){
+          
+    } 
+
+    final function calcAbsence(){
+
+    }
+    final function Reclamation(){
+
+    }  
+}     
 class  personnel extends Controller{   
     const Fetch=12; 
     public function __construct(){ 
