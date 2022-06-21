@@ -11,8 +11,8 @@
     public function __construct(){   
 
       $url = $this->getUrl(); 
-      // Look in controllers for first value 
-      if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
+      //Look in controllers for first value  
+      if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){  
         // If exists, set as controller 
         $this->currentController = ucwords($url[0]); 
         // Unset 0 Index
@@ -43,7 +43,7 @@
 
       // Call a callback with array of params 
       call_user_func_array([$this->currentController , $this->currentMethod], $this->params);
-    }
+    } 
 
     public function getUrl(){ 
       if(isset($_GET['url'])){ 
@@ -51,7 +51,7 @@
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
         return $url; 
-      }  
+      }   
     } 
   } 
   

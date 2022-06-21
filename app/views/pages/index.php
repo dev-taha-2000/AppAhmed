@@ -7,17 +7,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/landing.css"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= URLROOT ?>/css/royal-preload.css">
-    <link rel="stylesheet" href="<?= URLROOT ?>/css/landing.css">
-    <style>
-    .containerA{ 
-    width:100%;
-    height:100vh;
-    background:url("<?=URLROOT?>/img/logoopacity.png");
-    background-size:cover;
-    padding-left:30px;
-    padding-right:30px;
-    }    
-    </style>
+    <link rel="stylesheet" href="<?= URLROOT ?>/css/landing.css">   
     <title>Bienvenue à gérant |gérant</title>
     <script src="<?= URLROOT ?>/js/jquery.min.js"></script>
     <script src="<?= URLROOT ?>/js/royal_preloader.min.js"></script> 
@@ -57,30 +47,30 @@
             <a href="<?=URLROOT?>/users/register"><button class="btn btn-info">Commencer</button></a> 
         </div> 
     </div>
-    <div class="containerB w-100" style="background-color:rgb(198, 216, 244)"> 
-          <div class="w-100 m-auto  d-flex flex-wrap justify-content-evenly">
-                <div class="bg-light mt-5 border rounded  text-center p-2" >
+    <div class="containerB w-100">   
+          <div class="w-100 m-auto  d-flex flex-wrap justify-content-evenly"> 
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2" >
                     <h2 class="text-center">TVA</h2>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
                 </div>
-                <div class="bg-light mt-5 border rounded  text-center p-2">
-                    <h2  class="text-center">montant_ht</h2>
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2">
+                    <h2  class="text-center">mentant HT</h2> 
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quas illo adipisci enim reprehenderit soluta minus dignissimos voluptate aspernatur neque nisi porro cum maxime animi, quia rem accusamus veritatis inventore?
                 </div> 
-                <div class="bg-light mt-5 border rounded  text-center p-2">
-                    <h2  class="text-center">montant_TTC</h2>
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2">
+                    <h2  class="text-center">mentant TTC</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti eos cupiditate cumque nulla nostrum perspiciatis doloremque, reprehenderit quaerat, beatae, assumenda quo. Iste commodi explicabo esse atque obcaecati corporis? Alias!
                 </div> 
-                <div class="bg-light mt-5 border rounded  text-center p-2">
-                    <h2 class="text-center">Chantier</h2>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2">
+                    <h2 class="text-center">Les ventes</h2>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aliquid, incidunt pariatur nisi quaerat voluptatem debitis vel beatae quas recusandae est! Aliquid sunt voluptates qui necessitatibus delectus omnis officiis saepe?
                 </div>
-                <div class="bg-light mt-5 border rounded  text-center p-2">
-                    <h2  class="text-center">Client</h2>
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2"> 
+                    <h2  class="text-center">Les achats</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quas illo adipisci enim reprehenderit soluta minus dignissimos voluptate aspernatur neque nisi porro cum maxime animi, quia rem accusamus veritatis inventore?
                 </div> 
-                <div class="bg-light mt-5 border rounded  text-center p-2">  
-                    <h2  class="text-center">fornusseur</h2>
+                <div id="Card" class="bg-light mt-5 border rounded  text-center p-2">  
+                    <h2  class="text-center">banquaire</h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti eos cupiditate cumque nulla nostrum perspiciatis doloremque, reprehenderit quaerat, beatae, assumenda quo. Iste commodi explicabo esse atque obcaecati corporis? Alias!
                 </div> 
           </div>

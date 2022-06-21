@@ -1,3 +1,11 @@
+.containerA{ 
+    width:100%;
+    height:100vh;
+    background-image:url("../img/logoopacity.png"); 
+    background-size:cover;
+    padding-left:30px;
+    padding-right:30px;
+}      
 .containerB{
     height:100vh;
     width:100%;
@@ -24,3 +32,6 @@ header{
 .bg-light{
     width:400px;
 } 
+.Card{ 
+    background-color: rgb(224, 151, 57);
+}
