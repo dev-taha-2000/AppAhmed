@@ -11,7 +11,7 @@
               <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
             </svg>
             dashboard
-        </button>
+        </button> 
     </a>  
     <a href="<?php echo URLROOT ?>/Achat">
         <button class="w-75 mt-4 p-2 btn btn-dark <?php if( basename($_SERVER['REQUEST_URI'])=="Achat"){ echo "asidebar_active";}?>" data-bs-toggle="tooltip" data-bs-placement="right" title="les achats">

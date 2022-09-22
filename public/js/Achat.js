@@ -1,6 +1,6 @@
 function load_data(Search){   
     $.ajax({ 
-        url:'http://localhost/AppAhmed/Achat/tableAchat', 
+        url:'http://AppAhmed.com/Achat/tableAchat', 
         method:'POST',  
         data:{Search:Search},    
         success:function(data){   
@@ -17,7 +17,7 @@ load_table();
 function load_table(page){  
     
     $.ajax({ 
-        url:'http://localhost/AppAhmed/Achat/tableAchat',  
+        url:'http://AppAhmed.com/Achat/tableAchat',  
         method:'POST', 
         data:{page:page},    
         success:function(data){   
